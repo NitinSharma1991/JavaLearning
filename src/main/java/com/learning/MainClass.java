@@ -30,6 +30,7 @@ public class MainClass {
             else return -1;
         };
         Collections.sort(laptops, laptopsComparator);
+        System.out.println(laptops);
         List<Laptops> laptopsList = laptops.stream()
 //                .filter(laptop -> laptop.getName() != "Apple")
                 .sorted((o1, o2) -> {
@@ -39,6 +40,8 @@ public class MainClass {
                 })
                 .collect(Collectors.toList());
         for (Laptops a : laptopsList)
+//            a.setName("kaka");
             System.out.println(a);
     }
+
 }
