@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.groupingBy;
 public class GroupByLamda {
 
     public static void main(String[] args) {
-        Path paths = Paths.get("C:\\Java_World\\javalearning\\src\\main\\resources\\Item.csv");
+        Path paths = Paths.get("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\Item.csv");
         List<Item> list = new ArrayList();
 
         try {
