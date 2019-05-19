@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ReverseString {
-    static StringBuffer a = new StringBuffer("KaK");
+    static StringBuffer a = new StringBuffer("KaK123");
 
     public static void main(String[] args) {
         String s = String.valueOf(a);
