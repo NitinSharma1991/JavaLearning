@@ -1,0 +1,1 @@
+curl -verbose -XPOST -d "{\"request\": {\"method\": \"GET\",\"url\": \"/some/thing\"},\"response\": {\"status\": 200,\"body\": \"Hello world!\",\"headers\": {\"Content-Type\": \"text/plain\"}}}" http://localhost:8080/__admin/mappings
