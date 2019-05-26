@@ -24,7 +24,7 @@ public class Anargam {
         System.out.println(b + c + " " + d);
         System.out.println(i);
         System.out.println("Duplicate Characters in String {} " + duplicateChars(s.toLowerCase()));
-        s2=reverseString(s);
+        s2 = reverseString(s);
         if (s.equalsIgnoreCase(s2)) System.out.println("String is palindrome {} " + s);
         System.out.println(s2);
     }
