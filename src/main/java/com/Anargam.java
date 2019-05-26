@@ -1,12 +1,16 @@
 package com;
 
+
 import com.sun.xml.internal.fastinfoset.util.CharArray;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Anargam {
 
-    static String s = "Anegl";
+    static String s = "Nitin";
     static String s1 = "Angel";
 
     public static void main(String[] args) {
@@ -14,11 +18,15 @@ public class Anargam {
         String s3 = sort(s1);
         int i = s2.compareTo(s3);
 
-        byte b =  1;
+        byte b = 1;
         byte c = 100;
-        int d =  (b + c);
+        int d = (b + c);
         System.out.println(b + c + " " + d);
         System.out.println(i);
+        System.out.println("Duplicate Characters in String {} " + duplicateChars(s.toLowerCase()));
+        s2=reverseString(s);
+        if (s.equalsIgnoreCase(s2)) System.out.println("String is palindrome {} " + s);
+        System.out.println(s2);
     }
 
     private static String sort(String s) {
@@ -26,6 +34,34 @@ public class Anargam {
         Arrays.sort(array);
         return String.valueOf(array);
 
+    }
+
+    private static List<Character> duplicateChars(String a) {
+        List<Character> list = new LinkedList<>();
+        int t = 0;
+        HashSet<Character> set = new HashSet();
+        for (int i = 0; i <= a.length() - 1; i++) {
+            if (!set.contains(a.charAt(i)))
+                set.add(a.charAt(i));
+            else {
+                list.add(a.charAt(i));
+            }
+        }
+        /*print first non repeated character in the string */
+        set.removeAll(list);
+        System.out.println(set.iterator().next());
+        return list;
+
+    }
+/*
+ Recursive function to reverse String
+ */
+
+    public static String reverseString(String s) {
+        if (s.isEmpty()) {
+            return s;
+        }
+        return reverseString(s.substring(1)) + s.charAt(0);
     }
 
 }
