@@ -4,17 +4,17 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    private static int array[];
+    private static int [] array;
     private static int length;
 
     public static void main(String[] args) {
-        int a[] = {4, 3, 4, 9, 10, 1, 2, 3, 5};
-        int b[] = {2, 1};
+        int[] a = {4, 3, 4, 9, 1048, 10, 1, 2, 3, 5};
+        int[] b = {2, 1};
 
-        sort(b);
+        sort(a);
     }
 
-    public static void sort(int array[]) {
+    public static void sort(int[] array) {
         if (array == null || array.length < 1) return;
         QuickSort.array = array;
         length = array.length;

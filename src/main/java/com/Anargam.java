@@ -1,16 +1,11 @@
 package com;
 
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Anargam {
 
-    static String s = "Nitin";
+    static String s = "Nitin kaka ";
     static String s1 = "Angel";
 
     public static void main(String[] args) {
@@ -27,6 +22,8 @@ public class Anargam {
         s2 = reverseString(s);
         if (s.equalsIgnoreCase(s2)) System.out.println("String is palindrome {} " + s);
         System.out.println(s2);
+
+        System.out.println("Given String Character Count {} " + countCharacters(s));
     }
 
     private static String sort(String s) {
@@ -62,6 +59,14 @@ public class Anargam {
             return s;
         }
         return reverseString(s.substring(1)) + s.charAt(0);
+    }
+
+    public static Integer countCharacters(String a) {
+        HashMap map = new HashMap();
+        String b = a.replaceAll("\\s", "");
+        for (int i = 0; i < b.length(); i++)
+            map.put(i, b.charAt(i));
+        return map.size();
     }
 
 }

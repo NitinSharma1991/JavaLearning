@@ -2,7 +2,7 @@ package com;
 
 public class Singelton {
 
-    private static  volatile Singelton singelton;
+    private static volatile Singelton singelton;
 
     private Singelton() {
     }
