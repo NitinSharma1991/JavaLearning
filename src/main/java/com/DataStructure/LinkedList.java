@@ -2,11 +2,11 @@ package com.DataStructure;
 
 class LinkedList {
     private Node head;
-    private Node tail;
+//    private Node tail;
 
     public LinkedList() {
         this.head = new Node("head");
-        tail = head;
+//        tail = head;
     }
 
     public Node head() {
@@ -14,8 +14,19 @@ class LinkedList {
     }
 
     public void add(Node node) {
-        tail.next = node;
-        tail = node;
+        head.next = node;
+        head = node;
+    }
+
+    public Integer getLength(Node head) {
+        this.head = head;
+        int length = 1;
+        while (this.head.next() != null) {
+            length++;
+            this.head = this.head.next();
+        }
+
+        return length;
     }
 
     public static class Node {
