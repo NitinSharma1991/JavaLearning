@@ -29,8 +29,7 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 *.iml
-target
-target/
+*/target/**
 .idea/
 
 # Gradle and Maven with auto-import
