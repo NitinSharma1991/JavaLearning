@@ -2,11 +2,11 @@ package com.DataStructure;
 
 class LinkedList {
     private Node head;
-//    private Node tail;
+    private Node tail;
 
     public LinkedList() {
         this.head = new Node("head");
-//        tail = head;
+        tail = head;
     }
 
     public Node head() {
@@ -27,6 +27,37 @@ class LinkedList {
         }
 
         return length;
+    }
+
+    public Node reverse(Node head) {
+
+        Node pointer = head;
+        Node current;
+        Node previous = null;
+
+        while (pointer.next() != null) {
+            current = pointer;
+            pointer = pointer.next();
+
+            //reverse the link
+            current.next = previous;
+            previous = current;
+            head = current;
+
+        }
+
+        head.data = pointer.data();
+        head.next = head.next();
+        return head;
+    }
+
+    public void print(Node head) {
+
+        while (head.next() != null) {
+            System.out.println(head.data());
+            head = head.next();
+        }
+        System.out.println(head.data());
     }
 
     public static class Node {

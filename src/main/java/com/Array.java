@@ -81,7 +81,7 @@ public class Array {
             } else map.put(value, 1);
         }
 
-        ArrayList<Integer> b = new ArrayList<>();
+        ArrayList<Integer> b = new ArrayList<>(map.keySet());
         map.entrySet().stream()
                 .sorted((k1, k2) -> k1.getValue().compareTo(k2.getValue())).forEach(e -> {
             for (int i = 0; i < e.getValue(); i++)

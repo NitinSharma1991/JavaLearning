@@ -34,6 +34,8 @@ public class LinkedList1 {
         System.out.println("length of LinkedList: " + linkedList.getLength(head));
         System.out.println("middle element of LinkedList : " + middle);
 
+        LinkedList.Node node = linkedList.reverse(head);
+        linkedList.print(node);
 
     }
 

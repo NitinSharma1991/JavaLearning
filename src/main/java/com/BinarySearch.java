@@ -1,6 +1,5 @@
 package com;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BinarySearch {
@@ -8,7 +7,7 @@ public class BinarySearch {
     static int arr[] = {4, 3, 4, 9, 10, 1, 2, 3, 5};
 
     public static void main(String[] args) {
-        Arrays.sort(arr);
+        QuickSort.sort(arr);
         Scanner in = new Scanner(System.in);
         boolean b = search(in.nextInt(), 0, arr.length - 1, arr);
 
