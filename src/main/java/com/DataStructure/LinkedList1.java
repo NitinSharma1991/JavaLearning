@@ -33,9 +33,9 @@ public class LinkedList1 {
 
         System.out.println("length of LinkedList: " + linkedList.getLength(head));
         System.out.println("middle element of LinkedList : " + middle);
-
+        System.out.println("Node from head " + linkedList.getDataAt(head, 3));
         LinkedList.Node node = linkedList.reverse(head);
-        System.out.println("Node from tail " + linkedList.getDataAt(node,1));
+        System.out.println("Node from tail " + linkedList.getDataAt(node, 1));
         linkedList.print(node);
 
     }
