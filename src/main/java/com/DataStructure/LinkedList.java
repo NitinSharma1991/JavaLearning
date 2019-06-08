@@ -20,13 +20,13 @@ class LinkedList {
 
     public Integer getLength(Node head) {
         this.head = head;
-        int length = 1;
+        int length = 0;
         while (this.head.next() != null) {
             length++;
             this.head = this.head.next();
         }
 
-        return length;
+        return length++;
     }
 
     public Node reverse(Node head) {
@@ -45,10 +45,33 @@ class LinkedList {
             head = current;
 
         }
+        current = pointer;
+        pointer = pointer.next();
 
-        head.data = pointer.data();
-        head.next = head.next();
+        //reverse the link
+        current.next = previous;
+        previous = current;
+        head = current;
+
         return head;
+    }
+
+    public String getDataAt(Node head, int a) {
+
+        int length = 0;
+        int size = getLength(head);
+        if (size < a) return null;
+        if (a == length) return head.data();
+        while (head.next() != null) {
+            if (a == length)
+                return head.data();
+            length++;
+            head = head.next();
+
+        }
+        if (a == size) return head.data();
+
+        return null;
     }
 
     public void print(Node head) {
