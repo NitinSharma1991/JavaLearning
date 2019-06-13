@@ -2,7 +2,7 @@ package com;
 
 public class BinaryToDecimal {
 
-    private static int getDecimalfromBinary(int a) {
+    private static int getDecimalFromBinary(int a) {
 
         int decimal = 0;
         int power = 0;
@@ -20,7 +20,7 @@ public class BinaryToDecimal {
     }
 
     public static void main(String[] args) {
-        System.out.println(getDecimalfromBinary(111101));
+        System.out.println(getDecimalFromBinary(111101));
         System.out.println(checkBinary(110));
     }
 

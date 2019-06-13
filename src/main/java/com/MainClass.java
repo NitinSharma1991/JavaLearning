@@ -29,7 +29,7 @@ public class MainClass {
         list.add("mohit3");
 
 
-        System.out.println("Minimum Steps to reach song " + findNumber(list, 9, "mohit3"));
+        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
 
         LinkedList<String> linkedList = list.stream().collect(Collectors.toCollection(LinkedList::new));
 
@@ -77,7 +77,6 @@ public class MainClass {
         ListIterator listIterator1 = list.listIterator(k);
         int count = 0, next = -1, previous = 0;
 
-
         while (listIterator.hasNext()) {
             next += 1;
             if (listIterator.next().equals(a)) {
@@ -86,6 +85,7 @@ public class MainClass {
             }
 
         }
+
         if (!(count > 0)) {
             ListIterator listIterator2 = list.listIterator();
             while (listIterator2.hasNext() || count == k) {
@@ -99,15 +99,15 @@ public class MainClass {
         }
 
         count = 0;
-        
+
         while (listIterator1.hasPrevious()) {
             previous += 1;
             if (listIterator1.previous().equals(a)) {
                 count += 1;
                 break;
             }
-
         }
+
         if (!(count > 0)) {
             ListIterator listIterator3 = list.listIterator(list.size());
             while (listIterator3.hasPrevious() || count == k) {
