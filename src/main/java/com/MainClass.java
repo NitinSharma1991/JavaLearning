@@ -99,6 +99,7 @@ public class MainClass {
         }
 
         count = 0;
+        
         while (listIterator1.hasPrevious()) {
             previous += 1;
             if (listIterator1.previous().equals(a)) {
