@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinarySearch {
 
-    static int arr[] = {4, 3, 4, 9, 10, 1, 2, 3, 5};
+    static int arr[] = {4, 3};
 
     public static void main(String[] args) {
         QuickSort.sort(arr);
@@ -18,7 +18,7 @@ public class BinarySearch {
     public static boolean search(int number, int i, int j, int arr[]) {
         int low = 0;
         int high = 0;
-        if (j > 1) {
+
             low = i;
             high = j;
             int b = (low + (high - low) / 2);
@@ -35,7 +35,7 @@ public class BinarySearch {
 
             }
             if (i == j) return false;
-        }
+
         return search(number, low, high, arr);
 
     }

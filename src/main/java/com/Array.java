@@ -15,10 +15,11 @@ public class Array {
                 a[i] = i + 1;
         }
 
-        int[] c = {1, 2, 4, 5};
+        int[] c = {1,2,3};
         int[] e = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
 
+        sumOddDivisors(c);
         givenSum(d, 10);
 
         int b = missingNumber(c);
@@ -104,6 +105,23 @@ public class Array {
                 if (sum == arr[i] + arr[j]) System.out.println("Pair of sum {} " + arr[i] + " " + arr[j]);
             }
         }
+    }
+
+    public static void sumOddDivisors(int[] arr) {
+
+
+        long sum = 0;
+
+        for (int i : arr) {
+            if (i % 2 != 0 && i != 1) sum += 1;
+            int number = 0;
+            while (number <= i / 2) {
+                number += 1;
+                if ((number % 2 != 0) && (i % number == 0))
+                    sum += 1;
+            }
+        }
+        System.out.println("Sum of odd divisors {} " + sum);
     }
 
 }
