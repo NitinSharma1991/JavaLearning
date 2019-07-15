@@ -15,7 +15,7 @@ public class Array {
                 a[i] = i + 1;
         }
 
-        int[] c = {1,2,3};
+        int[] c = {1, 2, 3};
         int[] e = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
 
@@ -26,7 +26,6 @@ public class Array {
         sortArray(d);
         duplicateNumber(e);
         largestAndSmallest(e);
-
 
         System.out.println("Missing Number in Array {} " + b);
 //        System.out.println("Missing Number in Array {} " + Arrays.toString(a));

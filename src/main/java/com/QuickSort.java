@@ -9,9 +9,9 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] a = {4, 3, 4, 9, 1048, 10, 1, 2, 3, 5};
-        int[] b = {2, 1};
+        int[] b = {1,2,3,4,5};
 
-        sort(a);
+        sort(b);
     }
 
     public static void sort(int[] array) {
