@@ -1,4 +1,4 @@
-package com.codingProblems;
+package com.hackerRank;
 
 import java.util.Scanner;
 
