@@ -13,6 +13,7 @@ public class LinkedList1 {
         linkedList.add(new LinkedList.Node("5"));
         linkedList.add(new LinkedList.Node("6"));
         linkedList.add(new LinkedList.Node("7"));
+        System.out.println(head);
 
         //finding middle element of LinkedList in single pass
         LinkedList.Node current = head;
@@ -30,6 +31,8 @@ public class LinkedList1 {
         if (length % 2 == 1) {
             middle = middle.next();
         }
+
+        System.out.println(linkedList.head());
 
         System.out.println("length of LinkedList: " + linkedList.getLength(head));
         System.out.println("middle element of LinkedList : " + middle);

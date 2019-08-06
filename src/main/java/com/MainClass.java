@@ -1,20 +1,52 @@
 package com;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MainClass {
     public static void main(String[] args) {
-        /*List<Laptops> laptops = new ArrayList<Laptops>();
+        List<Laptops> laptops = new ArrayList<Laptops>();
         laptops.add(new Laptops("Dell", 11, 19));
         laptops.add(new Laptops("Sony", 14, 13));
         laptops.add(new Laptops("Apple", 16, 21));
         laptops.add(new Laptops("Apple", 9, 13));
 
-        Integer[] array = laptops.stream().toArray(Integer[]::new);*/
+//        Integer[] array = laptops.stream().toArray(Integer[]::new);
+
+        String a = "name";
+        HashMap map = new HashMap();
+        map.put(a,"getName()");
+        String b = (String) map.get(a);
+        System.out.println(b);
+        Object value = null;
+        try {
+          value   = new PropertyDescriptor("name", Laptops.class).getReadMethod().invoke(laptops.get(0));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        }
+        try {
+            for (PropertyDescriptor pd : Introspector.getBeanInfo(Laptops.class).getPropertyDescriptors()) {
+                if (pd.getReadMethod() != null && !"class".equals(pd.getName()))
+                    System.out.println(pd.getReadMethod().invoke(laptops.get(0)));
+            }
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(value.toString());
+
 
         List<String> list = new ArrayList<>();
         list.add("Beautiful");
@@ -29,7 +61,7 @@ public class MainClass {
         list.add("mohit3");
 
 
-        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
+//        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
 
         LinkedList<String> linkedList = list.stream().collect(Collectors.toCollection(LinkedList::new));
 
