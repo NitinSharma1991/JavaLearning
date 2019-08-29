@@ -32,9 +32,10 @@ public class MainClass {
         } catch (IntrospectionException e) {
             e.printStackTrace();
         }
+
         try {
             for (PropertyDescriptor pd : Introspector.getBeanInfo(Laptops.class).getPropertyDescriptors()) {
-                if (pd.getReadMethod() != null && !"class".equals(pd.getName()))
+                if (pd.getReadMethod() != null && !"class".equals(pd.getName()));
                     System.out.println(pd.getReadMethod().invoke(laptops.get(0)));
             }
         } catch (IntrospectionException e) {
