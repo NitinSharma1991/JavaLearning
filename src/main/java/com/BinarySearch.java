@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinarySearch {
 
-    static int arr[] = {4, 3};
+    static int arr[] = {4, 3,10,5,6,7,7,8,9,910101,45};
 
     public static void main(String[] args) {
         QuickSort.sort(arr);

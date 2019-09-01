@@ -1,4 +1,4 @@
-package com.hackerRank.Arrays;
+package com.hackerRank.Map;
 
 import java.io.IOException;
 import java.util.HashMap;
