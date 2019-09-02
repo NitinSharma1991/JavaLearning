@@ -21,6 +21,7 @@ public class TwoStrings {
         }
         i = 0;
         String s = "NO";
+        System.out.println(map.get(1));
         while (!(s1.length() - 1 < i)) {
             if (map.containsKey(s1.charAt(i)))
                 s = "YES";
