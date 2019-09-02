@@ -33,8 +33,8 @@ public class Triplets {
 
         long ans = 0;
         Long[] array = new Long[arr.size()];
-        Map<Long, Long> right = new HashMap();
-        Map<Long, Long> left = new HashMap();
+        Map<Long, Long> right = new HashMap<>();
+        Map<Long, Long> left = new HashMap<>();
         for (int i = 0; i < arr.size(); i++) {
             array[i] = arr.get(i);
             right.put(array[i], 0l);
