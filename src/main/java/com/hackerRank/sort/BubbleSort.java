@@ -10,7 +10,7 @@ public class BubbleSort {
         int swaps = 0;
 
         for (int i = 0; a.length > i; i++) {
-            boolean is_sorted = true;
+
             for (int j = 0; a.length - 1 > j; j++) {
                 if (a[j + 1] < a[j]) {
                     int temp = 0;
@@ -18,7 +18,7 @@ public class BubbleSort {
                     temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
-                    is_sorted = false;
+
                 }
             }
         }
