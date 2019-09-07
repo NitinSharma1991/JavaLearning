@@ -18,7 +18,7 @@ public class Palindrome {
         int count = 0;
         int middle = a.length / 2;
         int last = a.length - 1;
-        for (int i = 0; middle  > i; i++) {
+        for (int i = 0; middle > i; i++) {
             char reduce, toReduce;
             if (a[i] != a[last]) {
                 if (a[i] > a[last]) {
