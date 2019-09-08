@@ -61,7 +61,6 @@ public class MainClass {
         list.add("mohit2");
         list.add("mohit3");
 
-
 //        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
 
         LinkedList<String> linkedList = list.stream().collect(Collectors.toCollection(LinkedList::new));

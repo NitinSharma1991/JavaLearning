@@ -8,10 +8,18 @@ public class Anargam {
     static String s = "Nitin kaka ";
     static String s1 = "Angel";
 
+
     public static void main(String[] args) {
+        int aa = 10, b1 = 9, cc = 7;
+        aa=aa>>b1^cc<<2;
+        System.out.println(aa);
+
+        System.out.println(s.equals(s = s1));
         String s2 = sort(s);
         String s3 = sort(s1);
         int i = s2.compareTo(s3);
+
+        System.out.println(Math.min(Float.NaN, Float.POSITIVE_INFINITY));
 
         byte b = 1;
         byte c = 100;
