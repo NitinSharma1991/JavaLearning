@@ -32,27 +32,21 @@ class LinkedList {
     public Node reverse(Node head) {
 
         Node pointer = head;
-        Node current;
+        Node current=null;
         Node previous = null;
 
-        while (pointer.next() != null) {
+        while (pointer.next != null) {
             current = pointer;
-            pointer = pointer.next();
 
-            //reverse the link
+            pointer = pointer.next;
             current.next = previous;
             previous = current;
             head = current;
-
         }
         current = pointer;
-        pointer = pointer.next();
-
-        //reverse the link
+        pointer = pointer.next;
         current.next = previous;
-        previous = current;
         head = current;
-
         return head;
     }
 
