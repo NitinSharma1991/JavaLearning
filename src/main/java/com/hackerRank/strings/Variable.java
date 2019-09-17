@@ -29,7 +29,6 @@ public class Variable {
                 }
             }
         } else {
-            String regex = null;
             int j = 1;
             for (int i = 0; input.length() > i; i++) {
                 char s = input.charAt(i);
