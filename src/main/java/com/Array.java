@@ -4,6 +4,7 @@ package com;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Array {
 
@@ -26,6 +27,9 @@ public class Array {
         sortArray(d);
         duplicateNumber(e);
         largestAndSmallest(e);
+
+        List list = oddNumbers(3, 9);
+        System.out.println("Kaka " + list);
 
         System.out.println("Missing Number in Array {} " + b);
 //        System.out.println("Missing Number in Array {} " + Arrays.toString(a));
@@ -92,6 +96,7 @@ public class Array {
         System.out.println();
         b.stream().forEach(i -> System.out.print(i + " "));
 
+
     }
 
     public static void givenSum(int[] arr, int sum) {
@@ -121,6 +126,15 @@ public class Array {
             }
         }
         System.out.println("Sum of odd divisors {} " + sum);
+    }
+
+    static List<Integer> oddNumbers(int l, int r) {
+        List list = new ArrayList();
+        for (int i = l; r >= i; i++) {
+            if (i % 2 == 1)
+                list.add(i);
+        }
+        return list;
     }
 
 }
