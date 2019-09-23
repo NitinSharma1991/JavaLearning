@@ -2,7 +2,20 @@ package com;
 
 public class Gambling {
 
+    public static String[] adjectives = {"Nice", "Pretty", "Fun", "Spicy"};
+    public static String[] verbs = {"Runs", "Trots", "Walks", "Neighs", "Swaims", "Flies"};
+
     public static void main(String[] args) {
+        for (int i = 2; i < 5; i++) {
+            System.out.println(generateRandomSequence("Horse", i));
+        }
+    }
+
+    private static String generateRandomSequence(String horse, int i) {
+
+        return "The " + adjectives[i % adjectives.length] + " " + horse + " " + verbs[i % verbs.length];
+    }
+    /*public static void main(String[] args) {
         int a = gamling(18, 0);
 
         System.out.println(a);
@@ -30,5 +43,5 @@ public class Gambling {
         count = count1 + count;
         return count;
 
-    }
+    }*/
 }
