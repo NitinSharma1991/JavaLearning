@@ -24,6 +24,62 @@ public class FindMiddleElement {
         }
     }
 
+    public int length(Node node) {
+
+        int length = 0;
+        while (node.getNode() != null) {
+            length++;
+            node = node.getNode();
+        }
+        length++;
+        return length;
+    }
+
+    public String dataAt(int index) throws Exception {
+        Node node = head;
+        int length = 0;
+        if (length == index) return node.getVal();
+        while (node.getNode() != null) {
+            length++;
+            node = node.getNode();
+
+            if (length == index) return node.getVal();
+        }
+
+        throw new Exception();
+    }
+
+    public Node reverse(Node pointer) {
+        Node current = null;
+        Node previous = null;
+
+        while (pointer.getNode() != null) {
+            current = pointer;
+            pointer = pointer.getNode();
+            current.setNode(previous);
+            previous = current;
+        }
+        current = pointer;
+        current.node = previous;
+        pointer = current;
+        return pointer;
+    }
+
+    public String getLastNode(int n) {
+        Node fast = head;
+        Node slow = head;
+        int start = 1;
+        while (fast.getNode() != null) {
+            fast = fast.getNode();
+            start++;
+            if (start > n) {
+                slow = slow.getNode();
+            }
+        }
+        return slow.getVal();
+    }
+
+
     public void printList(Node node) {
 
         while (node.getNode() != null) {

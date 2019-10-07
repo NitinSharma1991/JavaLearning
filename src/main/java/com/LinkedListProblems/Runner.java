@@ -2,7 +2,7 @@ package com.LinkedListProblems;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         FindMiddleElement middleElement = new FindMiddleElement();
 
         middleElement.insertNode("kaka");
@@ -16,6 +16,13 @@ public class Runner {
         FindMiddleElement.Node current = middleElement.getHead();
         FindMiddleElement.Node middle = middleElement.getHead();
         int length = 0;
+
+//        System.out.println(middleElement.length(middleElement.getHead()));
+//        System.out.println(middleElement.dataAt(6));
+
+        middleElement.printList(middleElement.reverse(middle));
+
+//        System.out.println(middleElement.getLastNode(3));
 
         while (current.getNode() != null) {
             length++;
