@@ -19,12 +19,12 @@ public class MainClass {
 
         String a = "name";
         HashMap map = new HashMap();
-        map.put(a,"getName()");
+        map.put(a, "getName()");
         String b = (String) map.get(a);
         System.out.println(b);
         Object value = null;
         try {
-          value   = new PropertyDescriptor("name", Laptops.class).getReadMethod().invoke(laptops.get(0));
+            value = new PropertyDescriptor("name", Laptops.class).getReadMethod().invoke(laptops.get(0));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -35,8 +35,8 @@ public class MainClass {
 
         try {
             for (PropertyDescriptor pd : Introspector.getBeanInfo(Laptops.class).getPropertyDescriptors()) {
-                if (pd.getReadMethod() != null && !"class".equals(pd.getName()));
-                    System.out.println(pd.getReadMethod().invoke(laptops.get(0)));
+                if (pd.getReadMethod() != null && !"class".equals(pd.getName())) ;
+                System.out.println(pd.getReadMethod().invoke(laptops.get(0)));
             }
         } catch (IntrospectionException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class MainClass {
         list.add("mohit2");
         list.add("mohit3");
 
-//        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
+        System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
 
         LinkedList<String> linkedList = list.stream().collect(Collectors.toCollection(LinkedList::new));
 
