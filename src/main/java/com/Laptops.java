@@ -1,12 +1,5 @@
 package com;
 
-import lombok.*;
-
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
 public class Laptops implements Comparable<Laptops> {
     private String name;
     private int ram;
