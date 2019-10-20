@@ -8,11 +8,13 @@ public class Climbing {
     private static final Scanner scanner = new Scanner(System.in);
 
     // Complete the climbingLeaderboard function below.
-    static int[] climbingLeaderboard(int[] scores, int[] alice) {
-        int result[] = new int[alice.length];
+    private static int[] climbingLeaderboard(int[] scores, int[] alice) {
+        int[] result = new int[alice.length];
         Set<Integer> set =  new HashSet<Integer>();
 
-        for (int i : scores) set.add(i);
+        for (int i : scores) {
+            set.add(i);
+        }
         List<Integer> sortedList = new ArrayList<>(set);
         Collections.sort(sortedList, Collections.reverseOrder());
         int ind;
