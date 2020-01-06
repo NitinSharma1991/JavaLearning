@@ -11,6 +11,8 @@ public class Anargam {
 
     public static void main(String[] args) {
         int aa = 10, b1 = 9, cc = 7;
+
+        System.out.println(2&3);
         aa=aa>>b1^cc<<2;
         System.out.println(aa);
 
