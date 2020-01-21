@@ -1,5 +1,8 @@
 package com.hackerRank.strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestPalindrome {
 
     public String findTheLongestPalindrome(String str) {
@@ -31,8 +34,25 @@ public class LongestPalindrome {
         return str.substring(left + 1, right);
     }
 
+    static String getUniqueCharacterSubstring(String input) {
+        Map<Character, Integer> visited = new HashMap<>();
+        String output = "";
+        for (int start = 0, end = 0; end < input.length(); end++) {
+            char currChar = input.charAt(end);
+            if (visited.containsKey(currChar)) {
+                start = Math.max(visited.get(currChar) + 1, start);
+            }
+            if (output.length() < end - start + 1) {
+                output = input.substring(start, end + 1);
+            }
+            visited.put(currChar, end);
+        }
+        return output;
+    }
+
     public static void main(String[] args) {
         LongestPalindrome longestPalindrome = new LongestPalindrome();
+        System.out.println("Largest subtring of unique characters {} " + getUniqueCharacterSubstring("aaabcbdeaf"));
         System.out.println("Longest palindrome in abcmadamcbamadam is " + longestPalindrome.findTheLongestPalindrome("abcmadamcbamadam"));
         System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("abcba"));
     }
