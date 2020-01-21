@@ -19,7 +19,9 @@ public class Array {
         int[] c = {1, 2, 3};
         int[] e = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
-
+        int arr[] = {2, 3, 4, -1, 6, 8, 9, 11};
+        Arrays.sort(arr);
+        printPair(arr, 5);
         sumOddDivisors(c);
         givenSum(d, 10);
 
@@ -135,6 +137,25 @@ public class Array {
                 list.add(i);
         }
         return list;
+    }
+
+    static void printPair(int[] arr, int sum) {
+        int low = 0;
+        int high = arr.length - 1;
+        int pair = 0;
+        while (low < high) {
+            if (arr[low] + arr[high] == sum) {
+                pair++;
+               /* System.out.println("The pair is : ("
+                        + arr[low] + ", " + arr[high] + ")");*/
+            }
+            if (arr[low] + arr[high] > sum) {
+                high--;
+            } else {
+                low++;
+            }
+        }
+        System.out.println(pair);
     }
 
 }
