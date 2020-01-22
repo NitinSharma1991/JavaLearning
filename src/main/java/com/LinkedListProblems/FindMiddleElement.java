@@ -24,6 +24,24 @@ public class FindMiddleElement {
         }
     }
 
+    public void insertAt(String data, int x) {
+
+        int start = 1;
+
+        Node node = head;
+
+        while (start < x - 1) {
+            start++;
+            node = node.getNode();
+        }
+        Node node1 = new Node();
+        node1.setVal(data);
+        Node node2 = node.getNode();
+        node1.setNode(node2);
+        node.setNode(node1);
+
+    }
+
     public int length(Node node) {
 
         int length = 0;

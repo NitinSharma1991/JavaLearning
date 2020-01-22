@@ -13,6 +13,10 @@ public class Runner {
         middleElement.insertNode("kaka5");
         middleElement.insertNode("kaka6");
 
+        middleElement.insertAt("Nitin",4);
+
+       middleElement.printList(middleElement.getHead());
+
         FindMiddleElement.Node current = middleElement.getHead();
         FindMiddleElement.Node middle = middleElement.getHead();
         int length = 0;

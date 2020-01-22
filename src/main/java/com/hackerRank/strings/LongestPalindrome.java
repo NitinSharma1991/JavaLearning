@@ -6,10 +6,13 @@ import java.util.Map;
 public class LongestPalindrome {
 
     public String findTheLongestPalindrome(String str) {
+
         if (str == null) {
             return null;
         }
+
         String longestPalindrome = String.valueOf(str.charAt(0));
+
         for (int i = 0; i < str.length() - 1; i++) {
             String returnedPalindrome = findLongestPalindromeWithSpecifiedParameter(str, i, i);
             if (returnedPalindrome.length() > longestPalindrome.length()) {
@@ -38,10 +41,13 @@ public class LongestPalindrome {
         Map<Character, Integer> visited = new HashMap<>();
         String output = "";
         for (int start = 0, end = 0; end < input.length(); end++) {
+
             char currChar = input.charAt(end);
+
             if (visited.containsKey(currChar)) {
                 start = Math.max(visited.get(currChar) + 1, start);
             }
+
             if (output.length() < end - start + 1) {
                 output = input.substring(start, end + 1);
             }
