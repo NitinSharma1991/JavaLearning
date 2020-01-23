@@ -5,11 +5,20 @@ import java.util.*;
 
 public class Anargam {
 
-    static String s = "Nitin kaka ";
+    static String s = "I AM A TESTER";
+    static String s5 = "I AM A TESTER";
     static String s1 = "Angel";
 
 
     public static void main(String[] args) {
+
+        String s10[] = "i like this program very much".split(" ");
+        String ans = "";
+        for (int i = s10.length - 1; i >= 0; i--) {
+            ans += s10[i] + " ";
+        }
+        System.out.println("Reversed String:");
+        System.out.println(ans.substring(0, ans.length() - 1));
 
         System.out.println("Stream without terminal operation");
 
@@ -43,9 +52,9 @@ public class Anargam {
         System.out.println(b + c + " " + d);
         System.out.println(i);
         System.out.println("Duplicate Characters in String {} " + duplicateChars(s.toLowerCase()));
-        s2 = reverseString(s);
+        s2 = reverseString(s5);
         if (s.equalsIgnoreCase(s2)) System.out.println("String is palindrome {} " + s);
-        System.out.println(s2);
+        System.out.println("Reverse String " + s2);
 
         System.out.println("Given String Character Count {} " + countCharacters(s));
     }
