@@ -1,9 +1,6 @@
 package com;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class GroupbyArray {
 
@@ -24,7 +21,15 @@ public class GroupbyArray {
                 map.put(student[i][0], Integer.valueOf(student[i][1]));
                 map1.put(student[i][0], Integer.valueOf(1));
             }
+        }
 //            }
+
+        Iterator iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            Integer value = map1.get(entry.getKey());
+
+            System.out.println("Average for student " + entry.getKey() + " is " + (int) entry.getValue() / value);
         }
 
 

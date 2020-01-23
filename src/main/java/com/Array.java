@@ -1,10 +1,9 @@
 package com;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Array {
 
@@ -21,6 +20,7 @@ public class Array {
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int arr[] = {2, 3, 4, -1, 6, 8, 9, 11};
         Arrays.sort(arr);
+        groupBy(d);
         printPair(arr, 5);
         sumOddDivisors(c);
         givenSum(d, 10);
@@ -156,6 +156,13 @@ public class Array {
             }
         }
         System.out.println(pair);
+    }
+
+    static void groupBy(int[] a) {
+
+        List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
+        Map<String, Long> map = list.stream().collect(Collectors.groupingBy(string -> string, Collectors.counting()));
+        map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
     }
 
 }

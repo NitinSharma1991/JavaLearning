@@ -1,7 +1,7 @@
 package com.Threading;
 
-public class Deadlock {
-    static class Friend {
+//public class Deadlock {
+     class Friend {
         private final String name;
 
         public Friend(String name) {
@@ -24,7 +24,7 @@ public class Deadlock {
                             + " has bowed back to me!%n",
                     this.name, bower.getName());
         }
-    }
+//    }
 
     public static void main(String[] args) {
         final Friend alphonse =
