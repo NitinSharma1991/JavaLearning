@@ -12,7 +12,7 @@ public class Anargam {
 
     public static void main(String[] args) {
 
-        String s10[] = "i like this program very much".split(" ");
+        String[] s10 = "i like this program very much".split(" ");
         String ans = "";
         for (int i = s10.length - 1; i >= 0; i--) {
             ans += s10[i] + " ";
