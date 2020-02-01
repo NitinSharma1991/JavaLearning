@@ -97,7 +97,6 @@ public class FindMiddleElement {
         return slow.getVal();
     }
 
-
     public void printList(Node node) {
 
         while (node.getNode() != null) {
