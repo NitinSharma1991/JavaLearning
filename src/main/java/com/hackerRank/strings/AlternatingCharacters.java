@@ -1,6 +1,9 @@
 package com.hackerRank.strings;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AlternatingCharacters {
@@ -19,6 +22,30 @@ public class AlternatingCharacters {
         return count;
     }
 
+    static char firstNonRepeatingCharacter(String s) {
+
+        char a = 0;
+
+        Map<Character, Integer> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) map.put(s.charAt(i), Integer.valueOf(map.get(s.charAt(i))) + 1);
+            else map.put(s.charAt(i), 1);
+        }
+
+        Iterator iterator = map.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+
+            if ((int) entry.getValue() == 1) {
+                a = (char) entry.getKey();
+                break;
+            }
+        }
+        return a;
+    }
+
     public static void main(String[] args) throws IOException {
 
 
@@ -28,7 +55,8 @@ public class AlternatingCharacters {
         for (int qItr = 0; qItr < q; qItr++) {
             String s = scanner.nextLine();
 
-            int result = alternatingCharacters(s);
+//            int result = alternatingCharacters(s);
+            char result = firstNonRepeatingCharacter(s);
             System.out.println(result);
         }
 
