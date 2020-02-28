@@ -15,6 +15,15 @@ public class Laptops implements Comparable<Laptops> {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Laptops{" +
+                "name='" + name + '\'' +
+                ", ram=" + ram +
+                ", size=" + size +
+                '}';
+    }
+
     public void setName(String name) {
         this.name = name;
     }
