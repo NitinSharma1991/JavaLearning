@@ -1,4 +1,4 @@
-package com;
+package Algorithms;
 
 public class MyMergeSort {
 
