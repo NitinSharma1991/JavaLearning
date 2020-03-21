@@ -1,9 +1,10 @@
 package com.Threading;
 
+import lombok.SneakyThrows;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sema {
 
@@ -11,9 +12,8 @@ public class Sema {
 
         ExecutorService service = Executors.newFixedThreadPool(4);
         Semaphore semaphore = new Semaphore(2);
-        AtomicInteger atomicInteger = new AtomicInteger(0);
         for (int i = 0; i < 10; i++) {
-            service.execute(new SemaRun(semaphore, atomicInteger));
+            service.execute(new SemaRun(semaphore, i));
         }
         service.shutdown();
     }
@@ -22,17 +22,19 @@ public class Sema {
 class SemaRun implements Runnable {
 
     Semaphore sem;
-    AtomicInteger atomicInteger;
+    int atomicInteger;
 
-    public SemaRun(Semaphore sem, AtomicInteger atomicInteger) {
+    public SemaRun(Semaphore sem, int atomicInteger) {
         this.sem = sem;
         this.atomicInteger = atomicInteger;
     }
 
+    @SneakyThrows
     @Override
     public void run() {
-        System.out.println("Thread " + atomicInteger.incrementAndGet());
+        System.out.println("Thread " + atomicInteger);
         sem.acquireUninterruptibly();
+        Thread.sleep(1000);
         System.out.println("Thread Name " + Thread.currentThread().getId());
         sem.release();
 
