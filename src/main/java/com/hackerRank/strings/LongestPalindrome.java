@@ -37,7 +37,7 @@ public class LongestPalindrome {
         return str.substring(left + 1, right);
     }
 
-    static String getUniqueCharacterSubstring(String input) {
+    private static String getUniqueCharacterSubstring(String input) {
         Map<Character, Integer> visited = new HashMap<>();
         String output = "";
         for (int start = 0, end = 0; end < input.length(); end++) {

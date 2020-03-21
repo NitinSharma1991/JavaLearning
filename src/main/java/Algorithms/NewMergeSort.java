@@ -7,8 +7,10 @@ public class NewMergeSort {
     private static int[] a = {6, 4, 7, 1, 5, 2};
 
     public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
         mergeSort(a);
         System.out.println(Arrays.toString(a));
+        System.out.println(System.currentTimeMillis());
     }
 
     private static void mergeSort(int[] a) {
