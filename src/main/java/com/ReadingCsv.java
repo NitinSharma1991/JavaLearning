@@ -14,7 +14,9 @@ public class ReadingCsv {
         String row;
         File file = new File("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\NewItem.csv");
         List list = new ArrayList();
+
         if (!file.exists()) file.createNewFile();
+
         while ((row = reader.readLine()) != null) {
             assert row != null;
             String[] read = row.split(",");
@@ -40,6 +42,7 @@ public class ReadingCsv {
                 e.printStackTrace();
             }
         });
+
         reader.close();
         fw.flush();
         fw.close();
