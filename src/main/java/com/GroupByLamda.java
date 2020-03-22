@@ -41,9 +41,10 @@ public class GroupByLamda {
                 personByCity.get(p.getCategory()).add(p);
             }*/
             System.out.println("Person grouped by cities : " + personByCity);
+            Map<String, Double> personByCity2 = list.parallelStream().collect(groupingBy(Item::getCategory, averagingInt(Item::getId)));
             // Let's see how we can group objects in Java 8
             Map<String, Double> personByCity1 = list.stream().collect(groupingBy(Item::getCategory, averagingInt(Item::getId)));
-            System.out.println("Category : " + personByCity1);
+            System.out.println("Category : " + personByCity2);
             Map<Integer, List<Item>> personByAge = list.stream()
                     .collect(groupingBy(Item::getId));
 //            personByAge.entrySet().stream().forEach(p -> System.out.println(p.getValue()));
