@@ -11,7 +11,6 @@ public class AlternatingCharacters {
 
     // Complete the alternatingCharacters function below.
     static int alternatingCharacters(String s2) {
-
         char array[] = s2.toCharArray();
         int count = 0;
         for (int i = 0; array.length - 1 > i; i++) {

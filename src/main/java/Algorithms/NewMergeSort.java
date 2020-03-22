@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class NewMergeSort {
 
-    private static int[] a = {6, 4, 7, 1, 5, 2};
+    private static final int[] a = {6, 4, 7, 1, 5, 2};
 
     public static void main(String[] args) {
         System.out.println(System.currentTimeMillis());
