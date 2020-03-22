@@ -1,9 +1,5 @@
 package com;
 
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -22,33 +18,6 @@ public class MainClass {
         map.put(a, "getName()");
         String b = (String) map.get(a);
         System.out.println(b);
-        Object value = null;
-        try {
-            value = new PropertyDescriptor("name", Laptops.class).getReadMethod().invoke(laptops.get(0));
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IntrospectionException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            for (PropertyDescriptor pd : Introspector.getBeanInfo(Laptops.class).getPropertyDescriptors()) {
-                if (pd.getReadMethod() != null && !"class".equals(pd.getName())) ;
-                System.out.println(pd.getReadMethod().invoke(laptops.get(0)));
-            }
-        } catch (IntrospectionException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(value.toString());
-
-
         List<String> list = new ArrayList<>();
         list.add("Beautiful");
         list.add("kaka");
