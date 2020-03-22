@@ -11,7 +11,7 @@ public class ReadingCsv {
 
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedReader reader = new BufferedReader(new FileReader("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\Item.csv"));
-        String row = null;
+        String row;
         File file = new File("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\NewItem.csv");
         List list = new ArrayList();
         if (!file.exists()) file.createNewFile();
