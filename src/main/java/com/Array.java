@@ -2,8 +2,10 @@ package com;
 
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Array {
 
@@ -30,7 +32,7 @@ public class Array {
         duplicateNumber(e);
         largestAndSmallest(e);
 
-        List list = oddNumbers(3, 9);
+        List<Integer> list = oddNumbers(3, 9);
         System.out.println("Kaka " + list);
 
         System.out.println("Missing Number in Array {} " + b);
@@ -131,7 +133,7 @@ public class Array {
     }
 
     static List<Integer> oddNumbers(int l, int r) {
-        List list = new ArrayList();
+        List<Integer> list = new ArrayList<>();
         for (int i = l; r >= i; i++) {
             if (i % 2 == 1)
                 list.add(i);
@@ -140,6 +142,7 @@ public class Array {
     }
 
     static void printPair(int[] arr, int sum) {
+
         int low = 0;
         int high = arr.length - 1;
         int pair = 0;
@@ -156,12 +159,19 @@ public class Array {
             }
         }
         System.out.println(pair);
+        List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        long t1 = System.currentTimeMillis();
+        Integer sum1 = list.stream()
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(System.currentTimeMillis() - t1);
+
+        System.out.println("Sum " + sum1);
     }
 
     static void groupBy(int[] a) {
 
         List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
-        Map<String, Long> map = list.stream().collect(Collectors.groupingBy(string -> string, Collectors.counting()));
+        Map<String, Long> map = list.stream().collect(groupingBy(string -> string, counting()));
         map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
     }
 
