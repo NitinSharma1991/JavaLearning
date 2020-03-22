@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Bomb {
+public class ReadingCsv {
 
     public static void main(String[] args) throws IOException {
 
