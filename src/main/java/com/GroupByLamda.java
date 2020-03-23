@@ -8,8 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static java.util.stream.Collectors.averagingInt;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 public class GroupByLamda {
 
@@ -38,10 +37,10 @@ public class GroupByLamda {
                 personByCity.get(p.getCategory()).add(p);
             }*/
             System.out.println("Person grouped by cities : " + personByCity);
-            Map<String, Double> personByCity2 = list.parallelStream().collect(groupingBy(Item::getCategory, averagingInt(Item::getId)));
+            Map<String, Optional<Item>> personByCity2 = list.parallelStream().collect(groupingBy(Item::getCategory, minBy(Comparator.comparingInt(Item::getId))));
             // Let's see how we can group objects in Java 8
             Map<String, Double> personByCity1 = list.stream().collect(groupingBy(Item::getCategory, averagingInt(Item::getId)));
-            System.out.println("Category : " + personByCity2);
+            System.out.println("Category : " + personByCity2.get("Clothes"));
             Map<Integer, List<Item>> personByAge = list.stream()
                     .collect(groupingBy(Item::getId));
 //            personByAge.entrySet().stream().forEach(p -> System.out.println(p.getValue()));
