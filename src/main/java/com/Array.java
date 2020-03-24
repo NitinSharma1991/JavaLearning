@@ -2,10 +2,8 @@ package com;
 
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 public class Array {
 
@@ -31,6 +29,9 @@ public class Array {
         sortArray(d);
         duplicateNumber(e);
         largestAndSmallest(e);
+        List<Integer> list1 = Arrays.stream(e).boxed().collect(toCollection(ArrayList::new));
+        Integer sum = list1.stream().reduce(0, Integer::sum);
+        System.out.println(sum);
 
         List<Integer> list = oddNumbers(3, 9);
         System.out.println("Kaka " + list);
@@ -159,7 +160,7 @@ public class Array {
             }
         }
         System.out.println(pair);
-        List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        List<Integer> list = Arrays.stream(arr).boxed().collect(toList());
         long t1 = System.currentTimeMillis();
         Integer sum1 = list.stream()
                 .reduce(0, (a, b) -> a + b);
