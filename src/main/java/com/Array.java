@@ -50,16 +50,14 @@ public class Array {
         return 0;
     }
 
-    private static void duplicateNumber(int[] array) {
-        int a;
-        if (array.length < 1) {
-            System.out.println("no duplicate number found");
-        } else {
-            Arrays.sort(array);
-            for (a = 0; a < array.length - 1; a++) {
-                if (array[a] == array[a + 1]) System.out.println(array[a]);
-            }
-
+    private static void duplicateNumber(int[] array1) {
+        int i;
+        int[] arr = {1, 3, 2, 3};
+        for (i = 0; i < arr.length; i++) {
+            if (arr[Math.abs(arr[i])] > 0)
+                arr[Math.abs(arr[i])] = - arr[Math.abs(arr[i])];
+            else
+                System.out.println("\nDuplicate " + Math.abs(arr[i]));
         }
 
     }
@@ -165,7 +163,6 @@ public class Array {
         Integer sum1 = list.stream()
                 .reduce(0, (a, b) -> a + b);
         System.out.println(System.currentTimeMillis() - t1);
-
         System.out.println("Sum " + sum1);
     }
 

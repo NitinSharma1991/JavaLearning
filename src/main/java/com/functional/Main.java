@@ -4,6 +4,7 @@ import com.Laptops;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main {
@@ -21,7 +22,10 @@ public class Main {
         Function<Integer, Integer> function = number -> number + 1;
         Function<Integer, Integer> mutiplyBy10 = number -> number * 10;
 
+        BiFunction<Integer, Integer, Integer> biFunction = (number, number1) -> number * number1;
+
         System.out.println(mutiplyBy10.apply(90));
+        System.out.println(biFunction.apply(20, 34));
 
     }
 }
