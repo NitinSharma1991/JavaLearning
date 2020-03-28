@@ -55,7 +55,7 @@ public class Array {
         int[] arr = {1, 3, 2, 3};
         for (i = 0; i < arr.length; i++) {
             if (arr[Math.abs(arr[i])] > 0)
-                arr[Math.abs(arr[i])] = - arr[Math.abs(arr[i])];
+                arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
             else
                 System.out.println("\nDuplicate " + Math.abs(arr[i]));
         }
@@ -94,6 +94,10 @@ public class Array {
             for (int i = 0; i < e.getValue(); i++)
                 b.add(e.getKey());
         });
+
+        Map.Entry<Integer, Integer> map1 = Collections.max(map.entrySet(), (k1, k2) -> k1.getValue().compareTo(k2.getValue()));
+
+        System.out.println("Max Value" + map1.getValue());
 
         Arrays.stream(arr).forEach(i -> System.out.print(i + " "));
         System.out.println();
