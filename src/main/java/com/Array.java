@@ -15,7 +15,7 @@ public class Array {
                 a[i] = i + 1;
         }
 
-        int[] c = {1, 2, 3};
+        int[] c = {4, -1, 2, 1};
         int[] e = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int arr[] = {2, 3, 4, -1, 6, 8, 9, 11};
@@ -37,6 +37,8 @@ public class Array {
         System.out.println("Kaka " + list);
 
         System.out.println("Missing Number in Array {} " + b);
+
+        System.out.println("MaxSum " + maxSum(c));
 //        System.out.println("Missing Number in Array {} " + Arrays.toString(a));
     }
 
@@ -175,6 +177,19 @@ public class Array {
         List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
         Map<String, Long> map = list.stream().collect(groupingBy(string -> string, counting()));
         map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
+    }
+
+    private static int maxSum(int[] a) {
+        int ans = Integer.MIN_VALUE;
+        int a1 = 0;
+
+        for (int num : a) {
+            a1 += num;
+            ans = Math.max(ans, a1);
+            a1 = Math.max(a1, 0);
+        }
+
+        return ans;
     }
 
 }
