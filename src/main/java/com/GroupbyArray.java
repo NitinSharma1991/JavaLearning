@@ -11,6 +11,8 @@ public class GroupbyArray {
 
         HashMap<String, Integer> map = new HashMap();
         HashMap<String, Integer> map1 = new HashMap();
+        String a1 = "ABCD";
+        System.out.println(a1.substring(1,1));
 
         for (int i = 0; student.length > i; i++) {
 //            for (int j=0;student.length> j;j++) {

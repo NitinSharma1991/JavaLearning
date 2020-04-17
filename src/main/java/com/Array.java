@@ -165,6 +165,7 @@ public class Array {
         }
         System.out.println(pair);
         List<Integer> list = Arrays.stream(arr).boxed().collect(toList());
+        Integer[] a1 = list.stream().toArray(Integer[]::new);
         long t1 = System.currentTimeMillis();
         Integer sum1 = list.stream()
                 .reduce(0, (a, b) -> a + b);
@@ -175,6 +176,9 @@ public class Array {
     static void groupBy(int[] a) {
 
         List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
+
+            String [] arr = (String[]) list.toArray();
+//        System.out.println(list);
         Map<String, Long> map = list.stream().collect(groupingBy(string -> string, counting()));
         map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
     }
