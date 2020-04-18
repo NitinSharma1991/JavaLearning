@@ -26,6 +26,32 @@ public class LList {
         System.out.println(node.getData());
     }
 
+    public void insertAt(int a, String data) {
+        int start = 1;
+
+        Node node = new Node();
+        node.setData(data);
+        Node current = head;
+        if (a == 0) {
+            node.setNode(head);
+            head = node;
+            return;
+        }
+        while (current.getNode() != null) {
+            if (start == a) {
+                Node move = current.getNode();
+                node.setNode(move);
+                current.setNode(node);
+                break;
+            }
+            start++;
+            current = current.getNode();
+        }
+        Node move = current.getNode();
+        node.setNode(move);
+        current.setNode(node);
+    }
+
     public Node reverse(Node pointer) {
         Node current;
         Node previous = null;

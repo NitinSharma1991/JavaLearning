@@ -9,7 +9,7 @@ public class LLExample {
         list.insert("Nupur");
         list.insert("Apurva");
         list.insert("Swati");
-
+        list.insertAt(6, "love");
         list.print(list.head);
         System.out.println(" ");
         list.print(list.reverse(list.head));
