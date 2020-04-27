@@ -147,7 +147,7 @@ public class Array {
     }
 
     static void printPair(int[] arr, int sum) {
-
+        Object[] array;
         int low = 0;
         int high = arr.length - 1;
         int pair = 0;
@@ -177,7 +177,7 @@ public class Array {
 
         List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
 
-            String [] arr = (String[]) list.toArray();
+        String[] arr = (String[]) list.toArray();
 //        System.out.println(list);
         Map<String, Long> map = list.stream().collect(groupingBy(string -> string, counting()));
         map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
@@ -196,4 +196,8 @@ public class Array {
         return ans;
     }
 
+    private static void java8(int[] arr) {
+        List<Integer> integer = Arrays.stream(arr).boxed().collect(toList());
+        int arr1[] = integer.stream().mapToInt(Integer::intValue).toArray();
+    }
 }
