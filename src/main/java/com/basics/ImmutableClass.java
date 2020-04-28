@@ -2,6 +2,8 @@ package com.basics;
 
 import java.util.ArrayList;
 
+import static com.Anargam.reverseString;
+
 public final class ImmutableClass {
     final String name;
     final String nitin;
@@ -24,6 +26,8 @@ public final class ImmutableClass {
         ImmutableClass immutableClass = new ImmutableClass("ka", "na", "10", 10, list);
         list.add("nitin1");
         System.out.println(immutableClass);
+
+        System.out.println(reverseString("Nitin"));
 
 
     }
