@@ -22,21 +22,21 @@ public class Anargam {
 
         System.out.println("Stream without terminal operation");
 
-        Arrays.stream(new int[] { 1, 2, 3 }).map(i -> {
+        Arrays.stream(new int[]{1, 2, 3}).map(i -> {
             System.out.println("doubling " + i);
             return i * 2;
         });
 
         System.out.println("Stream with terminal operation");
-        Arrays.stream(new int[] { 1, 2, 3 }).map(i -> {
+        Arrays.stream(new int[]{1, 2, 3}).map(i -> {
             System.out.println("doubling " + i);
             return i * 2;
         }).sum();
 
         int aa = 10, b1 = 9, cc = 7;
 
-        System.out.println(2&3);
-        aa=aa>>b1^cc<<2;
+        System.out.println(2 & 3);
+        aa = aa >> b1 ^ cc << 2;
         System.out.println(aa);
 
         System.out.println(s.equals(s = s1));
@@ -88,10 +88,10 @@ public class Anargam {
  */
 
     public static String reverseString(String s) {
-        if (s.isEmpty()) {
-            return s;
-        }
+        if (s.isEmpty()) return s;
+
         return reverseString(s.substring(1)) + s.charAt(0);
+
     }
 
     public static Integer countCharacters(String a) {
