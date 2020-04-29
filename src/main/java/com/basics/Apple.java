@@ -1,6 +1,7 @@
 package com.basics;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class Apple {
@@ -12,10 +13,15 @@ public class Apple {
 
     public static void main(String[] args) {
         Apple a1 = new Apple("green");
-        Apple a2 = new Apple("red");
+        Apple a2 = new Apple("green");
+
+        HashSet<Apple> set = new HashSet<>();
 
         //hashMap stores apple type and its quantity
         HashMap<Apple, Integer> m = new HashMap<Apple, Integer>();
+        set.add(a2);
+        set.add(a1);
+        System.out.println(set.size());
         System.out.println(m.put(a1, 10));
         m.put(a2, 20);
         System.out.println(m.get(new Apple("green")));
