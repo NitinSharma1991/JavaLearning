@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Apple {
+public class Apple implements Cloneable {
     private String color;
 
     public Apple(String color) {
@@ -27,6 +27,21 @@ public class Apple {
         System.out.println(m.get(new Apple("green")));
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "color='" + color + '\'' +
+                '}';
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
@@ -40,5 +55,9 @@ public class Apple {
     @Override
     public int hashCode() {
         return Objects.hash(color);
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
