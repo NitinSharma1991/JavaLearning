@@ -54,7 +54,7 @@ public class LRUCache {
     }
 
     public static void main(String[] args) {
-        LRUCache ca = new LRUCache(4);
+        LRUCache ca = new LRUCache(10);
         ca.refer(1);
         ca.refer(2);
         ca.refer(1);
