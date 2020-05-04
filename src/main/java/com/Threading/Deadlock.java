@@ -8,9 +8,9 @@ package com.Threading;
             this.name = name;
         }
 
-        public String getName() {
-            return this.name;
-        }
+    public String getName() {
+        return this.name;
+    }
 
         public synchronized void bow(Friend bower) {
             System.out.format("%s: %s"
