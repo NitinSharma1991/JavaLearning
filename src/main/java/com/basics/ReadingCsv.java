@@ -10,14 +10,14 @@ public class ReadingCsv {
     public static void main(String[] args) throws IOException {
 
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\Item.csv"));
+//        BufferedReader reader = new BufferedReader(new FileReader("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\Item.csv"));
         String row;
-        File file = new File("C:\\Intellij Code\\JavaLearning\\src\\main\\resources\\NewItem.csv");
+        File file = new File("C:\\Users\\global\\Documents\\workspace-spring-tool-suite-4-4.2.2.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\admin\\cdn\\tc_common\\themes\\resources\\admin");
         List list = new ArrayList();
 
-        if (!file.exists()) file.createNewFile();
+        if (!file.exists()) file.mkdirs();
 
-        while ((row = reader.readLine()) != null) {
+       /* while ((row = reader.readLine()) != null) {
             assert row != null;
             String[] read = row.split(",");
             list.add(read);
@@ -45,7 +45,7 @@ public class ReadingCsv {
 
         reader.close();
         fw.flush();
-        fw.close();
+        fw.close();*/
     }
 
 

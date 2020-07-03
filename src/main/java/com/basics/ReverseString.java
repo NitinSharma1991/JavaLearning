@@ -15,7 +15,15 @@ public class ReverseString {
         }
 
         s1 = Arrays.toString(arr);
-        System.out.println(s1);
+        System.out.println(new String(arr));
+        System.out.println(reverse(s));
+    }
+
+    private static String reverse(String s){
+        if(s.isEmpty())
+            return s;
+
+        return reverse(s.substring(1)) + s.charAt(0);
     }
 
 
