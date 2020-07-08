@@ -1,6 +1,6 @@
 package com;
 
-public class LargetPrimeFactor{
+public class LargetPrimeFactor {
 
     public static void main(String args[]) {
 
