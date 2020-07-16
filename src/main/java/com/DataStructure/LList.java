@@ -68,6 +68,21 @@ public class LList {
         return pointer;
     }
 
+    public int length(Node node) {
+
+        if (node == null) return 0;
+
+        int length = 1;
+
+        while (node.getNode() != null) {
+            length++;
+            node = node.getNode();
+        }
+
+        return length;
+
+    }
+
     static class Node {
         Node node;
         String data;
