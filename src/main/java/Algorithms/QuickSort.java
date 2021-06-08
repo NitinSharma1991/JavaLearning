@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    private static int [] array;
+    private static int[] array;
     private static int length;
     private static int swaps;
 
     public static void main(String[] args) {
         int[] a = {4, 3, 4, 9, 1048, 10, 1, 2, 3, 5};
-        int[] b = {1,3,5,2,4,6,7};
+        int[] b = {1, 3, 5, 2, 4, 6, 7};
 
         sort(b);
         System.out.println(swaps);

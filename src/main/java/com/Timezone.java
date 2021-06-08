@@ -1,23 +1,31 @@
 package com;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Timezone {
 
     public static void main(String[] args) {
-        int[] heights = {5,1,2,3,4};
-        List<String> list = new ArrayList<>();
+        int[] heights = {5, 1, 2, 3, 4};
+        Set<String> list = new HashSet<>();
         System.out.println(heightChecker(heights));
+        list.add("Nitin2");
+        list.add("Nitin");
+        list.add("Nitin1");
+        list.add("Toby1");
+        list.add("Toby");
 
-        list.add("Nitin");
-        list.add("Nitin");
-        list.add("Nitin");
-        list.add("Toby ");
-        list.add("Toby ");
+        String s = list.stream().distinct().filter(i -> i.equals("Toby")).findFirst().orElse(null);
+        System.out.println(s);
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Toby", 1);
+        if (map.get("Toby") < map.getOrDefault(null, 0)) {
+            System.out.println("Yes");
+        }
 
-        String a = list.stream().distinct().filter(item -> item.trim().equals("Toby")).findAny().orElse(null);
-        System.out.println(a);
+
+//        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+//
+//        executorService.scheduleAtFixedRate(new CleaningScheduler(), 10, 10, TimeUnit.SECONDS);
 
 //        String a = "02/14/2020";
 //        LocalDate localDate = LocalDate.parse(a, DateTimeFormatter.ofPattern("M/dd/yyyy"));
@@ -48,7 +56,7 @@ public class Timezone {
         System.out.println(s);*/
     }
 
-    private static  int heightChecker(int[] heights) {
+    private static int heightChecker(int[] heights) {
         int[] heightToFreq = new int[101];
 
         for (int height : heights) {

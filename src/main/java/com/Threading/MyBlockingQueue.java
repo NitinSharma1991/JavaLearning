@@ -8,11 +8,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MyBlockingQueue<E> {
 
     Queue<E> queue;
-    private int max;
+    private final int max;
 
-    private ReentrantLock lock = new ReentrantLock(true);
-    private Condition notFull = lock.newCondition();
-    private Condition notEmpty = lock.newCondition();
+    private final ReentrantLock lock = new ReentrantLock(true);
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
 
     public MyBlockingQueue(int max) {
         this.queue = new LinkedList();

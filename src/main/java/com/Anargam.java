@@ -60,7 +60,7 @@ public class Anargam {
     }
 
     private static String sort(String s) {
-        char array[] = s.toLowerCase().toCharArray();
+        char[] array = s.toLowerCase().toCharArray();
         Arrays.sort(array);
         return String.valueOf(array);
 

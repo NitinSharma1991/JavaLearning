@@ -1,6 +1,6 @@
 package interview.generic;
 
-public class Address implements Cloneable{
+public class Address implements Cloneable {
     String street;
     int pincode;
     String city;
@@ -17,6 +17,10 @@ public class Address implements Cloneable{
         return pincode;
     }
 
+    public void setPincode(int pincode) {
+        this.pincode = pincode;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
@@ -24,10 +28,6 @@ public class Address implements Cloneable{
                 ", pincode=" + pincode +
                 ", city='" + city + '\'' +
                 '}';
-    }
-
-    public void setPincode(int pincode) {
-        this.pincode = pincode;
     }
 
     public String getCity() {

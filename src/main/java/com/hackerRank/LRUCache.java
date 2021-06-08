@@ -19,6 +19,17 @@ public class LRUCache {
         csize = n;
     }
 
+    public static void main(String[] args) {
+        LRUCache ca = new LRUCache(10);
+        ca.refer(1);
+        ca.refer(2);
+        ca.refer(1);
+        ca.refer(1);
+        ca.refer(4);
+        ca.refer(5);
+        ca.display();
+    }
+
     /* Refers key x with in the LRU cache */
     public void refer(int x) {
         if (!map.contains(x)) {
@@ -51,16 +62,5 @@ public class LRUCache {
         while (itr.hasNext()) {
             System.out.print(itr.next() + " ");
         }
-    }
-
-    public static void main(String[] args) {
-        LRUCache ca = new LRUCache(10);
-        ca.refer(1);
-        ca.refer(2);
-        ca.refer(1);
-        ca.refer(1);
-        ca.refer(4);
-        ca.refer(5);
-        ca.display();
     }
 }

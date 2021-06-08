@@ -6,13 +6,15 @@ import java.util.Scanner;
 
 public class BirthDayCandles {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the birthdayCakeCandles function below.
     static int birthdayCakeCandles(int[] ar) {
 
         Arrays.sort(ar);
-        int total =1;
-        for (int i = ar.length-1;i>=1;i--) {
-            if(ar[i] == ar[i-1]) {
+        int total = 1;
+        for (int i = ar.length - 1; i >= 1; i--) {
+            if (ar[i] == ar[i - 1]) {
                 total++;
             } else break;
 
@@ -21,8 +23,6 @@ public class BirthDayCandles {
         System.out.println(total);
         return total;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
 //        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

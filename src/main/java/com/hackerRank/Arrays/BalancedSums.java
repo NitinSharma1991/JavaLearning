@@ -14,7 +14,7 @@ public class BalancedSums {
     // Complete the balancedSums function below.
     static String balancedSums(List<Integer> arr) {
 
-        Integer arr1[] = (Integer[]) arr.toArray(new Integer[arr.size() - 1]);
+        Integer[] arr1 = arr.toArray(new Integer[arr.size() - 1]);
 
         if (arr1.length == 1) return "YES";
 

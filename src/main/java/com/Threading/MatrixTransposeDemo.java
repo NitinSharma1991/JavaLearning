@@ -39,8 +39,8 @@ public class MatrixTransposeDemo {
  * represent a Matrix.
  */
 class Matrix {
-    private int rows;
-    private int columns;
+    private final int rows;
+    private final int columns;
     private int[][] data;
 
     public Matrix(int row, int column) {
@@ -94,7 +94,6 @@ class Matrix {
     }
 
     /**
-     *
      * @param
      */
     public void print() {

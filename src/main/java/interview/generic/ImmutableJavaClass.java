@@ -16,10 +16,6 @@ public final class ImmutableJavaClass {
         this.address = address;
     }
 
-    public Address getAddress() throws CloneNotSupportedException {
-        return (Address) address.clone();
-    }
-
     public static void main(String[] args) throws CloneNotSupportedException {
         ArrayList list = new ArrayList<String>();
         list.add("KAkak");
@@ -31,6 +27,10 @@ public final class ImmutableJavaClass {
         immutableJavaClass.getAddress().setCity("Ghaziabad");
         System.out.println(immutableJavaClass);
 
+    }
+
+    public Address getAddress() throws CloneNotSupportedException {
+        return (Address) address.clone();
     }
 
     @Override

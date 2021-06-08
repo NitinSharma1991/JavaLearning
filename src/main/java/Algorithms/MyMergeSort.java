@@ -17,7 +17,7 @@ public class MyMergeSort {
         }
     }
 
-    public void sort(int inputArr[]) {
+    public void sort(int[] inputArr) {
         this.array = inputArr;
         this.length = inputArr.length;
         this.tempMergArr = new int[length];

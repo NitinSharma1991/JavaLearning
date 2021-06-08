@@ -11,14 +11,14 @@ public class TripleSum {
 
         HashMap<String, Integer> map = new HashMap<>();
         int[] a1 = removeDuplicates(a);
-        int a2[] = removeDuplicates(b);
-        int a3[] = removeDuplicates(c);
+        int[] a2 = removeDuplicates(b);
+        int[] a3 = removeDuplicates(c);
         int j = countPair(a1, a2, a3);
 
         return j;
     }
 
-    private static int countPair(int a[], int b[], int c[]) {
+    private static int countPair(int[] a, int[] b, int[] c) {
         int j = 0;
         for (int i = 0; b.length > i; i++) {
             for (int k = 0; a.length > k; k++) {
@@ -33,8 +33,8 @@ public class TripleSum {
 
     }
 
-    private static int[] removeDuplicates(int array[]) {
-        int arr[] = new int[array.length];
+    private static int[] removeDuplicates(int[] array) {
+        int[] arr = new int[array.length];
         int i = 0;
         for (int a = 0; a < array.length - 1; a++) {
 
@@ -44,7 +44,7 @@ public class TripleSum {
 
         }
         arr[i++] = array[array.length - 1];
-        int array1[] = new int[i];
+        int[] array1 = new int[i];
         for (int k = 0; k < i; k++) {
             array1[k] = arr[k];
         }

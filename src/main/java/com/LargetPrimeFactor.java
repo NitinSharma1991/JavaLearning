@@ -2,7 +2,7 @@ package com;
 
 public class LargetPrimeFactor {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         System.out.printf("Largest prime factor of number '%d' is %d %n",
                 6, largestPrimeFactor(6));

@@ -11,7 +11,7 @@ public class Sema {
     public static void main(String[] args) {
 
         ExecutorService service = Executors.newFixedThreadPool(4);
-        Semaphore semaphore = new Semaphore(2);
+        Semaphore semaphore = new Semaphore(1);
         for (int i = 0; i < 10; i++) {
             service.execute(new SemaRun(semaphore, i));
         }
@@ -34,7 +34,7 @@ class SemaRun implements Runnable {
     public void run() {
         System.out.println("Thread " + atomicInteger);
         sem.acquireUninterruptibly();
-
+        System.out.println("tad".equals(null));
         System.out.println("Thread Name " + Thread.currentThread().getId());
         sem.release();
 

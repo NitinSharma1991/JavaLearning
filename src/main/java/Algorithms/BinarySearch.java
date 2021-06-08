@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BinarySearch {
 
-    static int arr[] = {1, 2, 3, 4, 5};
+    static int[] arr = {1, 2, 3, 4, 5};
 
     public static void main(String[] args) {
         Arrays.sort(arr);
@@ -16,7 +16,7 @@ public class BinarySearch {
 
     }
 
-    public static boolean search(int searchValue, int array[]) {
+    public static boolean search(int searchValue, int[] array) {
         int left = 0;
         int right = array.length - 1;
 

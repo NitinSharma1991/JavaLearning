@@ -1,9 +1,9 @@
 package com.DataStructure;
 
 public class Stacks {
-    private int[] stack;
+    private final int[] stack;
     private int top;
-    private int size;
+    private final int size;
 
     public Stacks() {
         top = -1;
@@ -35,7 +35,6 @@ public class Stacks {
     }
 
     public boolean isEmpty() {
-        if (top == -1) return true;
-        else return false;
+        return top == -1;
     }
 }

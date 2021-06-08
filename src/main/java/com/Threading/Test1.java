@@ -10,11 +10,12 @@ enum Animals {
 }
 
 public class Test1 extends Thread {
-static Animals s1;
+    static Animals s1;
+
     public static void main(String[] args) {
         Test1 t = new Test1();
         Test1 t2 = new Test1();
-        System.out.println(s1.DOG.s);
+        System.out.println(Animals.DOG.s);
         t.start();
         t2.start();
     }

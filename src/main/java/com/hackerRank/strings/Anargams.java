@@ -1,6 +1,8 @@
 package com.hackerRank.strings;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Anargams {
     private static final Scanner scanner = new Scanner(System.in);

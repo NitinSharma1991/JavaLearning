@@ -9,7 +9,7 @@ public final class ImmutableClass {
     final String nitin;
     final String sum;
     final int a;
-    final ArrayList add;
+    final ArrayList<String> add;
     final Apple apple;
 
     public ImmutableClass(String name, String nitin, String sum, int a, ArrayList add, Apple apple) {
@@ -23,13 +23,15 @@ public final class ImmutableClass {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        ArrayList list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Nitin");
         Apple apple = new Apple("apple");
         ImmutableClass immutableClass = new ImmutableClass("ka", "na", "10", 10, list, apple);
         list.add("nitin1");
         immutableClass.getApple().setColor("Red");
         System.out.println(immutableClass);
+        ImmutableClass immutableClass1 = new ImmutableClass("ka", "na", "10", 10, list, apple);
+        System.out.println(immutableClass1);
 
         System.out.println(reverseString("Nitin"));
 

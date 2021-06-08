@@ -19,8 +19,8 @@ public class ReverseString {
         System.out.println(reverse(s));
     }
 
-    private static String reverse(String s){
-        if(s.isEmpty())
+    private static String reverse(String s) {
+        if (s.isEmpty())
             return s;
 
         return reverse(s.substring(1)) + s.charAt(0);

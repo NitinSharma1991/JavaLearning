@@ -27,7 +27,7 @@ public class LongestPalindrome {
 
     public static void main(String[] args) {
         LongestPalindrome longestPalindrome = new LongestPalindrome();
-        System.out.println("Largest subtring of unique characters {} " + getUniqueCharacterSubstring("aaabcbdeaf"));
+        System.out.println("Largest subtring of unique characters {} " + getUniqueCharacterSubstring("abcabcbb"));
         System.out.println("Largest subtring of unique characters {} " + longestPalindrome.getUniqueString("aaabcbdeaf"));
         System.out.println("Longest palindrome in abcmadamcbamadam is " + longestPalindrome.findTheLongestPalindrome("abcmaddamcbamadam"));
         System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("abcba"));

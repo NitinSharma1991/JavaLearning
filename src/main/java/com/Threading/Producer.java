@@ -4,9 +4,9 @@ import java.util.concurrent.BlockingQueue;
 
 public class Producer implements Runnable {
 
-    private BlockingQueue blockingQueue;
+    private final BlockingQueue<String> blockingQueue;
 
-    public Producer(BlockingQueue blockingQueue) {
+    public Producer(BlockingQueue<String> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 

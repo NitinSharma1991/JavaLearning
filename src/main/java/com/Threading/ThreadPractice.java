@@ -3,7 +3,7 @@ package com.Threading;
 public class ThreadPractice {
 
     public static void main(String[] args) {
-        String nitin[] = {"Kaka", "Nitin", "Sachin"};
+        String[] nitin = {"Kaka", "Nitin", "Sachin"};
 
         for (int i = 0; i <= nitin.length - 1; i++) {
 

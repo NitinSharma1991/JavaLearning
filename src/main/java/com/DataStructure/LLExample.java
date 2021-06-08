@@ -10,9 +10,9 @@ public class LLExample {
         list.insert("Apurva");
         list.insert("Swati");
         list.insertAt(6, "love");
-      /*  list.print(list.head);
+        list.print(list.head);
         System.out.println(" ");
-        list.print(list.reverse(list.head));*/
+        list.print(list.reverse(list.head));
 
         LList list1 = new LList();
         list1.insert("Kaka1");

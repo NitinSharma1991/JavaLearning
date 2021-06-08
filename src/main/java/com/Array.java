@@ -18,7 +18,7 @@ public class Array {
         int[] c = {4, -1, 2, 1};
         int[] e = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
         int[] d = {1, 2, 2, 3, 5, 5, 2, 3, 3, 2};
-        int arr[] = {2, 3, 4, -1, 6, 8, 9, 11};
+        int[] arr = {2, 3, 4, -1, 6, 8, 9, 11};
         Arrays.sort(arr);
         groupBy(d);
         printPair(arr, 5);
@@ -198,6 +198,6 @@ public class Array {
 
     private static void java8(int[] arr) {
         List<Integer> integer = Arrays.stream(arr).boxed().collect(toList());
-        int arr1[] = integer.stream().mapToInt(Integer::intValue).toArray();
+        int[] arr1 = integer.stream().mapToInt(Integer::intValue).toArray();
     }
 }

@@ -3,13 +3,13 @@ package com.Threading;
 public class Main {
     private int counter = 0;
 
-    synchronized int counterAdd() {
-        return counter++;
-    }
-
     public static void main(String[] args) throws InterruptedException {
         Main andNotify4 = new Main();
         andNotify4.testRaceCondition();
+    }
+
+    synchronized int counterAdd() {
+        return counter++;
     }
 
     private void testRaceCondition() throws InterruptedException {

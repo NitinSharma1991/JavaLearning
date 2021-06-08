@@ -1,15 +1,18 @@
 package com.basics;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Set;
 
 public class Cache {
-    private static LinkedList<Integer> deque = new LinkedList();
+    private static final LinkedList<Integer> deque = new LinkedList();
     private static int capacity;
-    private static Set set = new HashSet();
+    private static final Set set = new HashSet();
 
 
     public Cache(int capacity) {
-        this.capacity = capacity;
+        Cache.capacity = capacity;
     }
 
     public static void main(String[] args) {
@@ -20,14 +23,14 @@ public class Cache {
         cache.putCache(10);
         cache.putCache(4);
         cache.putCache(10);
-        cache.deque.forEach((o) -> System.out.println(o));
+        deque.forEach((o) -> System.out.println(o));
     }
 
     private void putCache(int a) {
 
         if (!set.contains(a)) {
             if (deque.size() == capacity) {
-                int last = (int) deque.removeLast();
+                int last = deque.removeLast();
                 set.remove(last);
             }
         } else {

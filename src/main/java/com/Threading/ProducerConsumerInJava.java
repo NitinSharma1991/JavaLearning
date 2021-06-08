@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Random;
 
 public class ProducerConsumerInJava {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println("How to use wait and notify method in Java");
         System.out.println("Solving Producer Consumper Problem");
         Queue<Integer> buffer = new LinkedList<>();
@@ -18,8 +18,8 @@ public class ProducerConsumerInJava {
 }
 
 class Producer1 extends Thread {
-    private Queue<Integer> queue;
-    private int maxSize;
+    private final Queue<Integer> queue;
+    private final int maxSize;
 
     public Producer1(Queue<Integer> queue, int maxSize, String name) {
         super(name);
@@ -50,8 +50,8 @@ class Producer1 extends Thread {
 }
 
 class Consumer1 extends Thread {
-    private Queue<Integer> queue;
-    private int maxSize;
+    private final Queue<Integer> queue;
+    private final int maxSize;
 
     public Consumer1(Queue<Integer> queue, int maxSize, String name) {
         super(name);

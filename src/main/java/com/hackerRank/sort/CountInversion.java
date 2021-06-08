@@ -18,7 +18,7 @@ public class CountInversion {
         }
 
         // Recursive Case
-        int mid = n/2;
+        int mid = n / 2;
         int[] left = Arrays.copyOfRange(arr, 0, mid);
         int[] right = Arrays.copyOfRange(arr, mid, arr.length);
         long inversions = countInversions(left) + countInversions(right);

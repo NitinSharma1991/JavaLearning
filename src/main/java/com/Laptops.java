@@ -15,6 +15,10 @@ public class Laptops implements Comparable<Laptops> {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Laptops{" +
@@ -22,10 +26,6 @@ public class Laptops implements Comparable<Laptops> {
                 ", ram=" + ram +
                 ", size=" + size +
                 '}';
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getRam() {

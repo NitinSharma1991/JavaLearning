@@ -7,7 +7,7 @@ import java.util.Set;
 public class RepeatedNumbers {
 
     public static void main(String[] args) {
-        int arr[] = {1, 10, 4, 10, 5, 10};
+        int[] arr = {1, 10, 4, 10, 5, 10};
         repeatedNumbers(arr);
     }
 

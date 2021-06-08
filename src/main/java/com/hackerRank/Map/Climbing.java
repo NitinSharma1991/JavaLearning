@@ -10,7 +10,7 @@ public class Climbing {
     // Complete the climbingLeaderboard function below.
     private static int[] climbingLeaderboard(int[] scores, int[] alice) {
         int[] result = new int[alice.length];
-        Set<Integer> set =  new HashSet<Integer>();
+        Set<Integer> set = new HashSet<Integer>();
 
         for (int i : scores) {
             set.add(i);

@@ -101,10 +101,7 @@ public class HighestValuePalindrome {
 
     public static boolean isPalindrome(String inputString) {
         StringBuilder strBuilder = new StringBuilder(inputString);
-        if (strBuilder.reverse().toString().equals(inputString)) {
-            return true;
-        }
-        return false;
+        return strBuilder.reverse().toString().equals(inputString);
     }
 
     public static void main(String[] args) throws IOException {
