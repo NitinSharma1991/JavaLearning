@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 public class ReverseString {
     static List<Integer> list = new ArrayList<>();
 
@@ -16,29 +14,43 @@ public class ReverseString {
 
         subSet(4);
         System.out.println(list);
-
-        System.out.println(powerNum(5,3));
+        String s1 = new StringBuilder(s).reverse().toString();
+        System.out.println(reverse("Naka"));
+        System.out.println(powerNum(5, 3));
     }
 
     private static int powerNum(int i, int i1) {
 
-        if(i1==0) return 1;
+        if (i1 == 0) return 1;
 
-        int a = powerNum(i,i1-1);
+        int a = powerNum(i, i1 - 1);
 
-        return a*i;
+        return a * i;
     }
 
 
     private static void subSet(int s) {
         if (s == 0) {
-            return ;
+            return;
         }
         list.add(s);
         subSet(s - 1);
         System.out.println(s);
 
 
+    }
+    private static String reverse(String s) {
+        char[] arr = s.toCharArray();
+        int i=0,j=s.length()-1;
+        while(i<j){
+            char c = arr[i];
+            arr[i] = arr[j];
+            arr[j]=c;
+            i++;
+            j--;
+        }
+
+        return String.valueOf(arr);
     }
 
     private static String reverseString(String s) {

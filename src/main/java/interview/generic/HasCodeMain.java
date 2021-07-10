@@ -16,5 +16,7 @@ public class HasCodeMain {
         if (map.getOrDefault("nitin", 0) > 1)
             System.out.println(true);
         System.out.println(a1.equals(a));
+
+
     }
 }

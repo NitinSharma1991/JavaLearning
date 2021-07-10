@@ -5,8 +5,8 @@ public class CountSubsetSum {
         int[] arr = {2, 3, 4, 7, 8, 2};
         int sum = 7;
         int diff = 1;
-        for (int i : arr)
-            sum += i;
+//        for (int i : arr)
+//            sum += i;
 
 //        sum = (diff + sum) / 2;
         int n = arr.length;

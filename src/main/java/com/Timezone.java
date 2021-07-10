@@ -22,6 +22,8 @@ public class Timezone {
             System.out.println("Yes");
         }
 
+        nitin(1,2);
+
 
 //        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 //
@@ -54,6 +56,13 @@ public class Timezone {
         String s = zdtAtET.format(DateTimeFormatter.ofPattern("yyyy-dd-MM hh:mm:ss Z"));
 
         System.out.println(s);*/
+    }
+
+    private  static  void nitin(int a, int b) {
+        System.out.println("Called");
+    }
+    private static void nitin(Integer a, Integer b) {
+        System.out.println("Called 2");
     }
 
     private static int heightChecker(int[] heights) {
