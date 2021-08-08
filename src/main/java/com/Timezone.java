@@ -21,6 +21,20 @@ public class Timezone {
         if (map.get("Toby") < map.getOrDefault(null, 0)) {
             System.out.println("Yes");
         }
+        long a = System.currentTimeMillis();
+        List<String> list1 = new ArrayList<>();
+        for(int i=0;i<100000;i++){
+            if(i%2==0)
+                list1.add("Nitin");
+            else list1.add("ANKITA");
+        }
+
+
+        System.out.println(list1.stream().distinct().count());
+        long b = System.currentTimeMillis() - a;
+        System.out.println(b);
+
+
 
         nitin(1,2);
 

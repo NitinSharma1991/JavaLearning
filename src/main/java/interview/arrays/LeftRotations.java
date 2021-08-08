@@ -50,9 +50,9 @@ public class LeftRotations {
 
         int[] result = rotLeft(a, d);
 
-        for (int i = 0; i < result.length; i++) {
+        for (int j : result) {
 
-            System.out.println(result[i]);
+            System.out.println(j);
 
         }
 

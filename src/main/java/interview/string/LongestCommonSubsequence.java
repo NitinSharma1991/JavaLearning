@@ -1,13 +1,13 @@
 package interview.string;
 
 public class LongestCommonSubsequence {
-    int[][] dp = new int["abcde".length() + 1]["abfcde".length() + 1];
+    static int[][] dp = new int["abcde".length() + 1]["abfcde".length() + 1];
 
     public static void main(String[] args) {
-        System.out.println(new LongestCommonSubsequence().longestCommonSubsequence("abcde", "abfcde", "abcde".length(), "abfcde".length()));
+        System.out.println(longestCommonSubsequence("abcde", "abfcde", "abcde".length(), "abfcde".length()));
     }
 
-    public int longestCommonSubsequence(String text1, String text2, int i, int j) {
+    public static int longestCommonSubsequence(String text1, String text2, int i, int j) {
         if (text1.isEmpty() || text2.isEmpty()) return 0;
         if (dp[i][j] != 0) return dp[i][j];
         if (text1.charAt(0) == text2.charAt(0)) {

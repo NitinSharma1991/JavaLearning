@@ -15,7 +15,9 @@ public class DuplicateNumber {
         // Second date
         LocalDate dt1 = LocalDate.parse("2018-11-14");
         System.out.println(dt1);
-
+        String s = null;
+        if ("".equalsIgnoreCase(s))
+            System.out.println("yes");
         // Compare both dates
         System.out.println(dt1.compareTo(dt));
 
@@ -27,8 +29,7 @@ public class DuplicateNumber {
     }
 
     private static void duplicateNumbers(int[] a) {
-        for (int i = 0; a.length > i;
-             i++) {
+        for (int i = 0; a.length > i; i++) {
             if (a[Math.abs(a[i])] < 0)
                 System.out.println("duplicate number " + Math.abs(a[i]));
             else
