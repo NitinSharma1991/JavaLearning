@@ -2,7 +2,7 @@ package interview.DP;
 
 public class TargetSum {
     public static void main(String[] args) {
-        int[] arr = {1,1,2,3};
+        int[] arr = {1, 1, 2, 3};
         int diff = 1;
         System.out.println(findTargetSumWays(arr, diff));
     }

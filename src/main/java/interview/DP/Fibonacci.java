@@ -6,8 +6,8 @@ public class Fibonacci {
     static int[] arr = {19, 5, 18, 1, -3, 4, 18, 18, 4, 19};
 
     public static void main(String[] args) {
-        int a[] = new int[10 + 1];
-        fibonacci(10, a);
+        int[] a = new int[10 + 1];
+        System.out.println(fibonacci(10, a));
         System.out.println(Arrays.toString(a));
     }
 

@@ -2,6 +2,7 @@ package com;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -29,7 +30,7 @@ public class Array {
         sortArray(d);
         duplicateNumber(e);
         largestAndSmallest(e);
-        List<Integer> list1 = Arrays.stream(e).boxed().collect(toCollection(ArrayList::new));
+        List<Integer> list1 = Arrays.stream(e).boxed().collect(Collectors.toList());
         Integer sum = list1.stream().reduce(0, Integer::sum);
         System.out.println(sum);
 
@@ -93,9 +94,9 @@ public class Array {
         ArrayList<Integer> b = new ArrayList<>(map.keySet());
         map.entrySet().stream()
                 .sorted((k1, k2) -> k1.getValue().compareTo(k2.getValue())).forEach(e -> {
-            for (int i = 0; i < e.getValue(); i++)
-                b.add(e.getKey());
-        });
+                    for (int i = 0; i < e.getValue(); i++)
+                        b.add(e.getKey());
+                });
 
         Map.Entry<Integer, Integer> map1 = Collections.max(map.entrySet(), (k1, k2) -> k1.getValue().compareTo(k2.getValue()));
 

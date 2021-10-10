@@ -17,16 +17,14 @@ public class BalancedSums {
         Integer[] arr1 = arr.toArray(new Integer[arr.size() - 1]);
 
         if (arr1.length == 1) return "YES";
-
-        HashMap map = new HashMap();
-        HashMap map1 = new HashMap();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map1 = new HashMap<>();
         int j = 0;
         for (Integer i : arr1) {
             if (map.size() == 0)
                 map.put(j, i);
             else map.put(++j, (Integer) map.get(j - 1) + i);
         }
-
         int k = 0;
         for (int i = arr1.length - 1; i >= 0; i--) {
             if (map1.size() == 0)

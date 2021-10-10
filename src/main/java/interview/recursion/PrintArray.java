@@ -2,13 +2,7 @@ package interview.recursion;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class PrintArray {
 
@@ -65,7 +59,7 @@ public class PrintArray {
 //        queue.forEach(a-> System.out.println(a.getValue()));
         int size = queue.size();
         for (int i = 0; i < size; i++) {
-            System.out.println(Objects.requireNonNull(queue.poll()).getValue());
+            System.out.printf("Top frequent Number %s%n", Objects.requireNonNull(queue.poll()).getValue());
         }
     }
 

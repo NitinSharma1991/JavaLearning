@@ -3,6 +3,7 @@ package com.functional;
 import com.Laptops;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -26,6 +27,10 @@ public class Main {
 
         System.out.println(mutiplyBy10.apply(90));
         System.out.println(biFunction.apply(20, 34));
+        // Map Reduce
+
+        List<Integer> list1 = Arrays.asList(1, 4, 5, 6, 7, 8);
+        System.out.println(list1.stream().mapToInt(i -> i).sum());
 
     }
 }

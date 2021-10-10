@@ -58,8 +58,7 @@ public class Parking {
 
                 SEMAPHORE.release();
                 System.out.printf("Car #%d leave the parking.\n", carNumber);
-
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
         }
     }
