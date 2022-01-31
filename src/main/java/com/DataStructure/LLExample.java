@@ -19,11 +19,13 @@ public class LLExample {
         list1.insert("Nitin1");
         list1.insert("Nupur1");
         list1.insert("Apurva1");
-        list1.insert("Swati");
-        list1.insertAt(6, "love");
+
+
+       list1.print(list1.swapPairs(list1.head));
 
         intersectionPoint(list, list1);
     }
+
 
     private static void intersectionPoint(LList list, LList lList) {
 

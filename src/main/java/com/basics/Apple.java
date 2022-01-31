@@ -18,7 +18,7 @@ public class Apple implements Cloneable {
         HashSet<Apple> set = new HashSet<>();
 
         //hashMap stores apple type and its quantity
-        HashMap<Apple, Integer> m = new HashMap<Apple, Integer>();
+        HashMap<Apple, Integer> m = new HashMap<>();
         set.add(a2);
         set.add(a1);
         System.out.println(set.size());

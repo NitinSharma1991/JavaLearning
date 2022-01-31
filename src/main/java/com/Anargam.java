@@ -69,7 +69,7 @@ public class Anargam {
     private static List<Character> duplicateChars(String a) {
         List<Character> list = new LinkedList<>();
         int t = 0;
-        HashSet<Character> set = new HashSet();
+        HashSet<Character> set = new HashSet<>();
         for (int i = 0; i <= a.length() - 1; i++) {
             if (!set.contains(a.charAt(i)))
                 set.add(a.charAt(i));
@@ -78,7 +78,7 @@ public class Anargam {
             }
         }
         /*print first non repeated character in the string */
-        set.removeAll(list);
+        list.forEach(set::remove);
         System.out.println(set.iterator().next());
         return list;
 
@@ -95,7 +95,7 @@ public class Anargam {
     }
 
     public static Integer countCharacters(String a) {
-        HashMap map = new HashMap();
+        HashMap<Integer, Character> map = new HashMap<>();
         String b = a.replaceAll("\\s", "");
         for (int i = 0; i < b.length(); i++)
             map.put(i, b.charAt(i));

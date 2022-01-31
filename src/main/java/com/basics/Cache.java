@@ -1,14 +1,13 @@
 package com.basics;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
 
 public class Cache {
-    private static final LinkedList<Integer> deque = new LinkedList();
+    private static final LinkedList<Integer> deque = new LinkedList<>();
+    private static final Set<Integer> set = new HashSet<>();
     private static int capacity;
-    private static final Set set = new HashSet();
 
 
     public Cache(int capacity) {
@@ -36,14 +35,12 @@ public class Cache {
         } else {
 
             int index = 0;
-            Iterator iterator = deque.iterator();
-            while (iterator.hasNext()) {
-                if ((int) iterator.next() == a) {
+            for (Integer integer : deque) {
+                if ((int) integer == a) {
                     break;
                 }
                 index++;
             }
-            System.out.println(index);
             deque.remove(index);
         }
         set.add(a);

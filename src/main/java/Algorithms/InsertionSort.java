@@ -17,7 +17,6 @@ public class InsertionSort {
     private static int[] insertionSort(int[] arr) {
 
         for (int i = 1; i < arr.length; i++) {
-
             int key = arr[i];
             int j = i - 1;
 
@@ -33,23 +32,20 @@ public class InsertionSort {
         return arr;
     }
 
-    private static int [] bubble(int [] arr) {
-
-        for(int i = 0; i<arr.length;i++){
-
-            boolean swapped =false;
-            for(int j=0;j<(arr.length-i-1);j++){
-                if(arr[j]>=arr[j+1]){
-                    int a  = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = a;
-                swapped = true;}
+    private static int[] bubble(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            boolean swapped = false;
+            for (int j = 0; j < (arr.length - i - 1); j++) {
+                if (arr[j] >= arr[j + 1]) {
+                    int a = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = a;
+                    swapped = true;
+                }
             }
-
             if (!swapped) return arr;
         }
         return arr;
     }
-
 
 }

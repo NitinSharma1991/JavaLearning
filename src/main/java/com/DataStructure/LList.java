@@ -18,6 +18,25 @@ public class LList {
         }
     }
 
+    public Node swapPairs(Node head) {
+
+        if (head == null) return null;
+
+        Node slow = head;
+        Node fast = head.node;
+
+        while (slow != null && slow.node != null) {
+            Node temp = slow;
+            slow = slow.node;
+            temp.node = slow.node;
+            slow.node = temp;
+            slow = temp.node;
+            if (slow != null && slow.node != null) temp.node = slow.node;
+        }
+        return fast;
+    }
+
+
     public void print(Node node) {
         while (node.getNode() != null) {
             System.out.println(node.getData());

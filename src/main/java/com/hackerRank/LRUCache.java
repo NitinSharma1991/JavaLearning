@@ -42,9 +42,8 @@ public class LRUCache {
                intermediate element that needs to be removed and added to the start
                of the Queue */
             int index = 0, i = 0;
-            Iterator<Integer> itr = dq.iterator();
-            while (itr.hasNext()) {
-                if (itr.next() == x) {
+            for (Integer integer : dq) {
+                if (integer == x) {
                     index = i;
                     break;
                 }

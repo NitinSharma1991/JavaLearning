@@ -7,8 +7,8 @@ public class Subsequence {
     static List<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-//        subSequence("abcde", "");
-        permutations("abc", "");
+        subSequence("abc", "");
+//        permutations("abc", "");
         System.out.println(list);
 
     }
@@ -18,8 +18,9 @@ public class Subsequence {
             list.add(ans);
             return;
         }
-        subSequence(s.substring(1), ans + s.charAt(0));
         subSequence(s.substring(1), ans);
+        subSequence(s.substring(1), ans + s.charAt(0));
+
 //        System.out.println(ans);
     }
 

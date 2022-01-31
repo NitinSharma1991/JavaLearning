@@ -12,6 +12,10 @@ public class GroupByArray {
         HashMap<String, Integer> map = new HashMap<>();
         HashMap<String, Integer> map1 = new HashMap<>();
         String a1 = "ABED";
+        String ans = "";
+        for (char a : a1.toCharArray()) {
+            ans = ans + a;
+        }
         System.out.println(a1.substring(1, 1));
 
         for (String[] strings : student) {
@@ -31,5 +35,20 @@ public class GroupByArray {
             Integer value = map1.get(entry.getKey());
             System.out.println("Average for student " + entry.getKey() + " is " + (int) entry.getValue() / value);
         }
+
+        System.out.println(findTheWinner(10, 2));
+    }
+
+
+    public static int findTheWinner(int n, int k) {
+
+        return winner(n, k) + 1;
+    }
+
+    private static int winner(int n, int k) {
+
+        if (n == 1) return 0;
+
+        return (winner(n - 1, k) + k) % n;
     }
 }
