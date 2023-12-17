@@ -22,11 +22,11 @@ public class Animal {
         this.sound = sound;
     }
 
-    public void setFly(Fly fly) {
-        this.fly = fly;
+    public Fly getFly() {
+        return fly;
     }
 
-    public String getFly() {
-       return fly.fly();
+    public String fly() {
+        return fly.fly();
     }
 }

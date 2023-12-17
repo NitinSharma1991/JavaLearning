@@ -9,13 +9,19 @@ public class Anargam {
     static String s5 = "I AM A TESTER";
     static String s1 = "Angel";
 
-
-    public static void main(String[] args) {
+     public static void main(String[] args) {
 
         String[] s10 = "i like this program very much".split(" ");
-        String ans = "";
+        int[] dict = new int[256];
+        System.out.println(dict[s.charAt(0)] > 0);
+        Arrays.sort(s10, Comparator.comparing(String::length));
+        System.out.println(Arrays.toString(s10));
+        StringBuilder ans = new StringBuilder();
+        assert s!=null : "data is missing" + s;
+
+
         for (int i = s10.length - 1; i >= 0; i--) {
-            ans += s10[i] + " ";
+            ans.append(s10[i]).append(" ");
         }
         System.out.println("Reversed String:");
         System.out.println(ans.substring(0, ans.length() - 1));
@@ -33,10 +39,10 @@ public class Anargam {
             return i * 2;
         }).sum();
 
-        int aa = 10, b1 = 9, cc = 7;
+        int aa, cc = 7;
 
         System.out.println(2 & 3);
-        aa = aa >> b1 ^ cc << 2;
+        aa = cc << 2;
         System.out.println(aa);
 
         System.out.println(s.equals(s = s1));

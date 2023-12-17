@@ -16,21 +16,23 @@ public class SherlockString {
         Map<Long, Long> counts = s.chars()
                 .mapToObj(t -> (char) t)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet().stream()
-                .map(Map.Entry::getValue)
+                .values().stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         switch (counts.size()) {
-            case 1:
+            case 1 -> {
                 return "YES";
-            case 2:
+            }
+            case 2 -> {
                 Iterator<Long> it = counts.keySet().iterator();
                 boolean result = (Math.abs(it.next() - it.next()) == 1 && (counts.values().stream()
                         .anyMatch(i -> i == 1)));
                 if (result) return "YES";
                 else return "NO";
-            default:
+            }
+            default -> {
                 return "NO";
+            }
         }
     }
 

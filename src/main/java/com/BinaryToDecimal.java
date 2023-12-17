@@ -13,7 +13,7 @@ public class BinaryToDecimal {
             if (a == 0) break;
             else {
                 int temp = a % 10;
-                decimal += temp * Math.pow(2, power);
+                decimal += (int) (temp * Math.pow(2, power));
                 a = a / 10;
                 power++;
             }
@@ -22,9 +22,9 @@ public class BinaryToDecimal {
     }
 
     public static void main(String[] args) {
-        System.out.println(getDecimalFromBinary(111101));
+        System.out.println(getDecimalFromBinary(11));
         System.out.println(conBinaryToHexDecimal(61));
-        System.out.println(decimalToBinary(61));
+        System.out.println(decimalToBinary(10));
         System.out.println(checkBinary(110));
     }
 
@@ -33,12 +33,10 @@ public class BinaryToDecimal {
         while (true) {
             if (a == 0) break;
             else {
-                int temp = 0;
-                temp = a % 10;
+                int temp = a % 10;
                 if (temp > 1) {
                     status = false;
                     break;
-
                 }
                 a = a / 10;
             }
@@ -49,26 +47,25 @@ public class BinaryToDecimal {
     private static String conBinaryToHexDecimal(int a) {
         String binary = decimalToBinary(a);
         int decimal = getDecimalFromBinary(Integer.parseInt(binary));
-        String hexaDecimal = "";
+        StringBuilder hexaDecimal = new StringBuilder();
 
         while (decimal > 0) {
             int i = decimal % 16;
-            hexaDecimal = hex[i] + hexaDecimal;
+            hexaDecimal.insert(0, hex[i]);
             decimal = decimal / 16;
         }
 
-        return hexaDecimal;
+        return hexaDecimal.toString();
     }
 
     private static String decimalToBinary(int a) {
-        String binary = "";
-        int i = 0;
+        StringBuilder binary = new StringBuilder();
 
         while (a > 0) {
-            binary = (a % 2) + binary;
+            binary.insert(0, (a % 2));
             a = a / 2;
         }
 
-        return binary;
+        return binary.toString();
     }
 }

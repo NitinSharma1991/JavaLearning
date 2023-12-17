@@ -1,7 +1,10 @@
 package com;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class GroupByArray {
 
@@ -12,9 +15,9 @@ public class GroupByArray {
         HashMap<String, Integer> map = new HashMap<>();
         HashMap<String, Integer> map1 = new HashMap<>();
         String a1 = "ABED";
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         for (char a : a1.toCharArray()) {
-            ans = ans + a;
+            ans.append(a);
         }
         System.out.println(a1.substring(1, 1));
 
@@ -30,10 +33,10 @@ public class GroupByArray {
         }
 //            }
 
+        List<Integer> res = map.values().stream().toList();
         for (Map.Entry<String, Integer> stringIntegerEntry : map.entrySet()) {
-            Map.Entry<String, Integer> entry = stringIntegerEntry;
-            Integer value = map1.get(entry.getKey());
-            System.out.println("Average for student " + entry.getKey() + " is " + (int) entry.getValue() / value);
+            Integer value = map1.get(stringIntegerEntry.getKey());
+            System.out.println("Average for student " + stringIntegerEntry.getKey() + " is " + (int) stringIntegerEntry.getValue() / value);
         }
 
         System.out.println(findTheWinner(10, 2));

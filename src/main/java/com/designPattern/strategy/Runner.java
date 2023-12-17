@@ -5,17 +5,11 @@ public class Runner {
     public static void main(String[] args) {
         Animal dog = new Dog();
         Animal bird = new Bird();
-        System.out.println("Dog: " + dog.getFly());
-        System.out.println("Bird: " + bird.getFly());
-
-        dog.setFly(new ItFly());
-        System.out.println("Dog: " + dog.getFly());
-
-
-
+        dog.setName("Kaka");
+        dog.setSound("Bark");
+        bird.setName("Pigeon");
+        bird.setName("Piu");
+        System.out.printf("Dog: %s and name is %s %n", dog.fly(), dog.getName());
+        System.out.println("Bird: " + bird.fly());
     }
-
-
-
-
 }

@@ -10,7 +10,7 @@ public class HighestValuePalindrome {
     // Complete the highestValuePalindrome function below.
     static String highestValuePalindrome(String inputString, int numberOfDigits, int maximumDigitsToBeAltered) {
 
-        String palindrome = "";
+        String palindrome;
         int allDigitsWithoutNine = inputString.replaceAll("9", "").length();
         if (allDigitsWithoutNine <= maximumDigitsToBeAltered) {
             String regex = "[0-8]";

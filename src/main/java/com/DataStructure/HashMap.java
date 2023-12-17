@@ -2,13 +2,14 @@ package com.DataStructure;
 
 public class HashMap<K, V> {
 
-    private static final int DEFALUT_CAPACITY = 16;
+    private static final int DEF_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75;
     Node<K, V>[] array;
     int size;
     double loadFactor;
+
     public HashMap() {
-        this(DEFALUT_CAPACITY, LOAD_FACTOR);
+        this(DEF_CAPACITY, LOAD_FACTOR);
     }
 
     @SuppressWarnings("unchecked")

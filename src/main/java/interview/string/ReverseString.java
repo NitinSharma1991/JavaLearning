@@ -9,6 +9,11 @@ public class ReverseString {
 
     public static void main(String[] args) {
         String s = "KKAt";
+        System.out.println("K".equals("K"));
+        List<String> list = new ArrayList<>();
+        list.add("Kaka");
+        list.add("Megha");
+        System.out.println(list.stream().distinct().anyMatch("Kaka1"::equals));
 //        System.out.println(fib(4));
 //        System.out.println(reverseString(s));
 

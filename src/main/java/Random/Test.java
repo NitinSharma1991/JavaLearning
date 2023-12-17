@@ -13,12 +13,12 @@ public class Test {
         int end = nums.length - 1;
         while (start <= end) {
             int mid = (start + end) / 2;
-            if (nums[mid] <= target) {
+            if (nums[mid] <= 10) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
             }
-            if (nums[mid] == target) idx = mid;
+            if (nums[mid] == 10) idx = mid;
         }
         return idx;
 

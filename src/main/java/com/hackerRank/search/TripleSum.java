@@ -1,7 +1,6 @@
 package com.hackerRank.search;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class TripleSum {
@@ -9,7 +8,6 @@ public class TripleSum {
 
     static long triplets(int[] a, int[] b, int[] c) {
 
-        HashMap<String, Integer> map = new HashMap<>();
         int[] a1 = removeDuplicates(a);
         int[] a2 = removeDuplicates(b);
         int[] a3 = removeDuplicates(c);

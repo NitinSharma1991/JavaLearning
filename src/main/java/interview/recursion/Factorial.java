@@ -8,6 +8,6 @@ public class Factorial {
 
     private static int factorial(int i) {
         if (i == 1) return 1;
-        return  factorial(i - 1) * i;
+        return factorial(i - 1) * i;
     }
 }

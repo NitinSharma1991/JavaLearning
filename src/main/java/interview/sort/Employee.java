@@ -37,14 +37,6 @@ public class Employee implements Comparable<Employee>{
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
     public void setOrganization(String organization) {
         this.organization = organization;
     }

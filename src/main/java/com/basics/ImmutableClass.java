@@ -9,7 +9,7 @@ public final class ImmutableClass {
     final String nitin;
     final String sum;
     final int a;
-    final ArrayList<String> add;
+    final ArrayList add;
     final Apple apple;
 
     public ImmutableClass(String name, String nitin, String sum, int a, ArrayList add, Apple apple) {

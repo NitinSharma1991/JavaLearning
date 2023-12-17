@@ -1,6 +1,5 @@
 package com.Threading;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class MatrixTransposeDemo {
@@ -29,7 +28,6 @@ public class MatrixTransposeDemo {
         System.out.println("transpose of the matrix is ");
         first.print();
         scnr.close();
-        HashMap map = new HashMap();
     }
 
 }

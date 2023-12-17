@@ -14,7 +14,6 @@ public class SecondSmallestInArray {
                 secondMin = i;
         }
 
-
         return secondMin;
     }
 

@@ -3,6 +3,7 @@ package com;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.*;
 
@@ -178,10 +179,8 @@ public class Array {
 
         List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
 
-        String[] arr = (String[]) list.toArray();
-//        System.out.println(list);
-        Map<String, Long> map = list.stream().collect(groupingBy(string -> string, counting()));
-        map.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
+        Map<String, Long> map = list.stream().collect(Collectors.groupingBy(id -> id, HashMap::new, Collectors.counting()));
+        System.out.println("Grouping By" + map);
     }
 
     private static int maxSum(int[] a) {

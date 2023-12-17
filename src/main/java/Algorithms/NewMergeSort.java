@@ -19,13 +19,9 @@ public class NewMergeSort {
         int[] leftA = new int[mid];
         int[] rightA = new int[a.length - mid];
 
-        for (int i = 0; i < mid; i++) {
-            leftA[i] = a[i];
-        }
+        System.arraycopy(a, 0, leftA, 0, mid);
 
-        for (int i = mid; i < a.length; i++) {
-            rightA[i - mid] = a[i];
-        }
+        if (a.length - mid >= 0) System.arraycopy(a, mid, rightA, 0, a.length - mid);
         mergeSort(leftA);
         mergeSort(rightA);
 

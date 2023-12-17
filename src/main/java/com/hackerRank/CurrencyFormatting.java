@@ -12,16 +12,16 @@ public class CurrencyFormatting {
         double payment = scanner.nextDouble();
         scanner.close();
 
-        String us = "", india = "", china = "", france = "";
+        String us, india, china, france;
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         us = format.format(payment);
         format.setCurrency(Currency.getInstance(Locale.FRANCE));
         france = format.format(payment);
-        NumberFormat format1 = NumberFormat.getCurrencyInstance(Locale.CHINA);
-//        format.setCurrency(Currency.getInstance(Locale.CHINA));
-        china = format1.format(payment);
-        NumberFormat format2 = NumberFormat.getCurrencyInstance(new Locale("en", "IN"));
+        format.setCurrency(Currency.getInstance(Locale.CHINA));
+        china = format.format(payment);
+
+        NumberFormat format2 = NumberFormat.getCurrencyInstance(Locale.of("en", "IN"));
         india = format2.format(payment);
         System.out.println("US: " + us);
         System.out.println("India: " + india);

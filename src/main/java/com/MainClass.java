@@ -1,7 +1,6 @@
 package com;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -14,7 +13,7 @@ public class MainClass {
 //        Integer[] array = laptops.stream().toArray(Integer[]::new);
 
         String a = "name";
-        HashMap map = new HashMap();
+        HashMap<String, String> map = new HashMap<>();
         map.put(a, "getName()");
         String b = (String) map.get(a);
         System.out.println(b);
@@ -31,8 +30,6 @@ public class MainClass {
         list.add("mohit3");
 
         System.out.println("Minimum Steps to reach song " + findNumber(list, 5, "mohit3"));
-
-        LinkedList<String> linkedList = list.stream().collect(Collectors.toCollection(LinkedList::new));
 
 
         /*Collections.sort(laptops);

@@ -1,6 +1,5 @@
 package interview.recursion;
 
-import javafx.util.Pair;
 
 import java.util.*;
 
@@ -40,8 +39,8 @@ public class PrintArray {
     }
 
     private static void topFrequentNumber() {
-        PriorityQueue<Pair<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparing(Pair::getKey));
-        PriorityQueue<Pair<Character,Integer>> q = new PriorityQueue<>(((o1, o2) -> Integer.compare(o2.getValue(),o1.getValue())));
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(Map.Entry.comparingByKey());
+        PriorityQueue<Map.Entry<Character, Integer>> q = new PriorityQueue<>(((o1, o2) -> Integer.compare(o2.getValue(), o1.getValue())));
 
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
@@ -53,12 +52,12 @@ public class PrintArray {
 
         }
         final String[] ans = {""};
-        queue.forEach(p-> ans[0] = ans[0] + p.getKey());
+        queue.forEach(p -> ans[0] = ans[0] + p.getKey());
         Arrays.asList(ans);
 
         //top k frequent
         map.forEach((key, value) -> {
-            queue.add(new Pair<>(value, key));
+            queue.add(new AbstractMap.SimpleEntry<>(value, key));
 //            if (queue.size() > k) queue.poll();
         });
 //        queue.forEach(a-> System.out.println(a.getValue()));

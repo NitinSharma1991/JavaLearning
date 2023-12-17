@@ -10,8 +10,8 @@ import static java.lang.Thread.sleep;
 public class CF {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        Object result;
-        CompletableFuture future = CompletableFuture.supplyAsync(() -> "Hello");
+
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello");
         CompletableFuture<? extends String> future1 = CompletableFuture.supplyAsync(() -> "Nitin");
         CompletableFuture future2 = CompletableFuture.supplyAsync(() -> {
 
@@ -25,10 +25,10 @@ public class CF {
 
         });
 
-        CompletableFuture<? extends Object> future4 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<?> future4 = CompletableFuture.supplyAsync(() -> {
             try {
                 sleep(10000);
-                throw new Exception("Fatt gayi");
+                throw new Exception("Fatty gay");
             } catch (Exception e) {
                 e.printStackTrace();
             }

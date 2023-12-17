@@ -12,17 +12,11 @@ public class Fibonacci {
     }
 
     private static int fibonacci(int i, int[] a) {
-
-        if (i == 0 || i == 1) return i;
-        if (a[i] != 0) return a[i];
-        int res = fibonacci(i - 1, a);
-        int res1 = fibonacci(i - 2, a);
-        a[i] = res + res1;
-        return a[i];
+        if (i <= 1) return i;
+        if (a[i] > 0) return a[i];
+        a[i] = fibonacci(i - 1, a) + fibonacci(i - 2, a);
+         return a[i];
     }
 
-    private static void subSets(int[] a, int sum) {
-        int curr = 0;
 
-    }
 }

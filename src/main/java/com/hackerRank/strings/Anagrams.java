@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Anargams {
+public class Anagrams {
     private static final Scanner scanner = new Scanner(System.in);
 
     static int makeAnagram(String first, String second) {

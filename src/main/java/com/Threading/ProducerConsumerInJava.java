@@ -20,7 +20,7 @@ public class ProducerConsumerInJava {
 class Producer1 extends Thread {
     private final Queue<Integer> queue;
     private final int maxSize;
-
+  
     public Producer1(Queue<Integer> queue, int maxSize, String name) {
         super(name);
         this.queue = queue;
