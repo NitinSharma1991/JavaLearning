@@ -2,14 +2,17 @@ package com.designPattern.strategy;
 
 public class Runner {
 
+
+
     public static void main(String[] args) {
-        Animal dog = new Dog();
-        Animal bird = new Bird();
-        dog.setName("Kaka");
-        dog.setSound("Bark");
-        bird.setName("Pigeon");
-        bird.setName("Piu");
-        System.out.printf("Dog: %s and name is %s %n", dog.fly(), dog.getName());
-        System.out.println("Bird: " + bird.fly());
+
+        Vechile passengerVehicle = new PassengerVehicle("Passenger Vehicle", new SportsDrive());
+        Vechile sportVehicle = new SportsVehicle("Sports Vehicle", new NormalDrive());
+        Vechile normalVehicle = new NormalVehicle("Normal Vehicle", new SportsDrive());
+
+        System.out.println(passengerVehicle.getVechileType() + " " + passengerVehicle.drive());
+        System.out.println(sportVehicle.getVechileType() + " " + sportVehicle.drive());
+        System.out.println(normalVehicle.getVechileType() + " " + normalVehicle.drive());
+
     }
 }

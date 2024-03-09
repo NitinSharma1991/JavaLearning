@@ -5,6 +5,7 @@ import java.sql.Driver;
 import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConnectionPool implements ConnectionPoolInterface {
 
@@ -13,14 +14,26 @@ public class ConnectionPool implements ConnectionPoolInterface {
     String username = "Nitin";
     String password = "password";
     String jdbcUrl = "jdbcUrl";
-    int size = 0;
+    AtomicInteger size = new AtomicInteger();
     Driver driver;
 
-    ConnectionPool(int capacity, Driver driver) {
-        this.blockingQueue = new ArrayDeque<>(capacity);
-        this.capacity = capacity;
-        this.size = 0;
-        this.driver = driver;
+    public static volatile ConnectionPool db;
+
+    private ConnectionPool() {
+    }
+
+    public static ConnectionPool getDb() {
+        if (db == null) {
+            synchronized (ConnectionPool.class) {
+                if (db == null) {
+                    db = new ConnectionPool();
+                    db.blockingQueue = new ArrayDeque<>(10);
+                    return db;
+                }
+            }
+        }
+
+        return db;
     }
 
 
@@ -30,8 +43,8 @@ public class ConnectionPool implements ConnectionPoolInterface {
         boolean createNewConnection = false;
         synchronized (this) {
             while (blockingQueue.isEmpty()) {
-                if (size < capacity) {
-                    size++;
+                if (size.get() < capacity) {
+                    size.incrementAndGet();
                     createNewConnection = true;
                     break;
                 } else {
@@ -40,7 +53,6 @@ public class ConnectionPool implements ConnectionPoolInterface {
                         throw new SQLException("Connection not available");
                     }
                 }
-
             }
         }
 
@@ -54,9 +66,11 @@ public class ConnectionPool implements ConnectionPoolInterface {
             java.util.Properties info = new java.util.Properties();
             info.put("user", username);
             info.put("password", password);
-            return driver.connect(jdbcUrl, info);
+            Connection con = driver.connect(jdbcUrl, info);
+            blockingQueue.offer(con);
+            return con;
         } catch (Throwable t) {
-            size--;
+            size.decrementAndGet();
             throw new RuntimeException("Couldn't Create Connection");
         }
     }

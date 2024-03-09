@@ -11,11 +11,7 @@ public class JdkLearning {
                 mohit
                 """;
         System.out.println(html);
-        switch (day) {
-            case "Sat", "Sun" -> System.out.println(10);
-            case "wed" -> System.out.println(8);
-            default -> System.out.println(9);
-        }
+        System.out.println(10);
 
     }
 }

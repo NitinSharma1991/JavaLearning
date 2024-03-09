@@ -1,0 +1,3 @@
+In decorator you have a base object which can be decorated with another object. This process can go on with further decoration on top of those object.
+
+Base Pizza Object can be decorated with the help of extra toppings.

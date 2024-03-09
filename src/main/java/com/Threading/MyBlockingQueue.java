@@ -15,7 +15,7 @@ public class MyBlockingQueue<E> {
     private final Condition notEmpty = lock.newCondition();
 
     public MyBlockingQueue(int max) {
-        this.queue = new LinkedList();
+        this.queue = new LinkedList<>();
         this.max = max;
     }
 
@@ -27,7 +27,7 @@ public class MyBlockingQueue<E> {
             queue.add(e);
             notEmpty.signalAll();
         } catch (InterruptedException ex) {
-            ex.printStackTrace();
+            ex.getStackTrace();
         } finally {
             lock.unlock();
         }
@@ -37,14 +37,14 @@ public class MyBlockingQueue<E> {
         lock.lock();
         E item = null;
         try {
-            while (queue.size() == 0)
+            while (queue.isEmpty())
                 notEmpty.await();
 
             item = queue.remove();
             notFull.signalAll();
             return item;
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            e.getStackTrace();
         } finally {
             lock.unlock();
         }

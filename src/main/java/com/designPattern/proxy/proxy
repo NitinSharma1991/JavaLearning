@@ -1,0 +1,2 @@
+Proxy design pattern is used whenever we are trying to restrict the access to our real object from client.
+Also we can add more restriction at proxy level.

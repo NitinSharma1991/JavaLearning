@@ -1,0 +1,1 @@
+Adapter Design Pattern is needed when you want to convert the class behaviour to clients needs without exposing child class to client.

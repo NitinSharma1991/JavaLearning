@@ -14,6 +14,6 @@ public class Locks {
     private void print() {
         lock.lock();
         System.out.println("Thread ID" + Thread.currentThread().getId());
-//        lock.unlock();
+        lock.unlock();
     }
 }

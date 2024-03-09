@@ -1,0 +1,2 @@
+This is a Singelton design pattern which states that there can be a only object for a given class. Whoever needs to use the functionality of that class
+they have to refer to this object to use the functionality.
