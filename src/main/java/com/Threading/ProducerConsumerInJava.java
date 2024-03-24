@@ -1,15 +1,13 @@
 package com.Threading;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Random;
 
 public class ProducerConsumerInJava {
     public static void main(String[] args) {
         System.out.println("How to use wait and notify method in Java");
-        System.out.println("Solving Producer Consumper Problem");
-        Queue<Integer> buffer = new LinkedList<>();
-        int maxSize = 10;
+        System.out.println("Solving Producer Consumer Problem");
+        BoundedBlockingQueue<Integer> buffer = new BoundedBlockingQueue<>(5);
+        int maxSize = 5;
         Thread producer = new Producer1(buffer, maxSize, "PRODUCER");
         Thread consumer = new Consumer1(buffer, maxSize, "CONSUMER");
         producer.start();
@@ -18,10 +16,10 @@ public class ProducerConsumerInJava {
 }
 
 class Producer1 extends Thread {
-    private final Queue<Integer> queue;
+    private final BoundedBlockingQueue<Integer> queue;
     private final int maxSize;
-  
-    public Producer1(Queue<Integer> queue, int maxSize, String name) {
+
+    public Producer1(BoundedBlockingQueue<Integer> queue, int maxSize, String name) {
         super(name);
         this.queue = queue;
         this.maxSize = maxSize;
@@ -30,30 +28,30 @@ class Producer1 extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized (queue) {
-                while (queue.size() == maxSize) {
-                    try {
-                        System.out.println("Queue is full, " + "Producer thread waiting for " + "consumer to take something from queue");
-                        queue.wait();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                Random random = new Random();
-                int i = random.nextInt();
-                System.out.println("Producing value : " + i);
-                queue.add(i);
-                queue.notifyAll();
+            try {
+//                System.out.println("Queue is full, " + "Producer thread waiting for " + "consumer to take something from queue");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            Random random = new Random();
+            int i = random.nextInt();
+            System.out.println("Producing value : " + i);
+            try {
+                queue.enqueue(i);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
 }
+
 
 class Consumer1 extends Thread {
-    private final Queue<Integer> queue;
+    private final BoundedBlockingQueue<Integer> queue;
     private final int maxSize;
 
-    public Consumer1(Queue<Integer> queue, int maxSize, String name) {
+    public Consumer1(BoundedBlockingQueue<Integer> queue, int maxSize, String name) {
         super(name);
         this.queue = queue;
         this.maxSize = maxSize;
@@ -62,19 +60,10 @@ class Consumer1 extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized (queue) {
-                while (queue.isEmpty()) {
-                    System.out.println("Queue is empty," + "Consumer thread is waiting" + " for producer thread to put something in queue");
-                    try {
-                        queue.wait();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                System.out.println("Consuming value : " + queue.remove());
-                queue.notifyAll();
-            }
+//            System.out.println("Queue is empty," + "Consumer thread is waiting" + " for producer thread to put something in queue");
+            System.out.println("Consuming value : " + queue.dequeue());
         }
     }
 }
+
 

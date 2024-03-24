@@ -21,5 +21,10 @@ public class LearningBasics {
 
         WeakReference<Employee> weakReference = new WeakReference<>(new Employee());
 
+        String url = "https://classroom.codingninjas.com/app/login?redirect=%2Fapp%2Fbootcamps%2FStriver232%3F&logged_out=true";
+        int idx = url.indexOf('/', 8);
+        String ans =  (idx != -1) ? url.substring(8, idx) : url;
+        System.out.println(ans);
+
     }
 }
