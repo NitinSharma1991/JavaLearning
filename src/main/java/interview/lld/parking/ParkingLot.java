@@ -12,7 +12,7 @@ public class ParkingLot implements Parking {
     private final List<Slot> twoWheelerSlots;
     private final List<Slot> fourWheelerSlots;
 
-    public ParkingLot() {
+    private ParkingLot() {
         this.twoWheelerSlots = new ArrayList<>();
         this.fourWheelerSlots = new ArrayList<>();
     }

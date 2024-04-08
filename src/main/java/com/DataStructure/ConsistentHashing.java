@@ -1,68 +1,72 @@
 package com.DataStructure;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.security.MessageDigest;
 
 public class ConsistentHashing {
+    private final TreeMap<Long, String> ring;
+    private final int numberOfReplicas;
+    private final MessageDigest md;
 
-    private final SortedMap<Integer, String> ring = new TreeMap<>();
-
-    public void addNode(String node) {
-        int hash = getHash(node);
-        ring.put(hash, node);
+    public ConsistentHashing(int numberOfReplicas) throws NoSuchAlgorithmException {
+        this.ring = new TreeMap<>();
+        this.numberOfReplicas = numberOfReplicas;
+        this.md = MessageDigest.getInstance("MD5");
     }
 
-    public void removeNode(String node) {
-        int hash = getHash(node);
-        ring.remove(hash);
+    public void addServer(String server) {
+        for (int i = 0; i < numberOfReplicas; i++) {
+            long hash = generateHash(server + i);
+            ring.put(hash, server);
+        }
     }
 
-    public String getNodeForKey(String key) {
+    public void removeServer(String server) {
+        for (int i = 0; i < numberOfReplicas; i++) {
+            long hash = generateHash(server + i);
+            ring.remove(hash);
+        }
+    }
+
+    public String getServer(String key) {
         if (ring.isEmpty()) {
             return null;
         }
-
-        int hash = getHash(key);
-        SortedMap<Integer, String> tailMap = ring.tailMap(hash);
-
-        // If tailMap is empty, wrap around to the first node in the ring
-        int selectedHash = tailMap.isEmpty() ? ring.firstKey() : tailMap.firstKey();
-
-        return ring.get(selectedHash);
+        long hash = generateHash(key);
+        if (!ring.containsKey(hash)) {
+            SortedMap<Long, String> tailMap = ring.tailMap(hash);
+            hash = tailMap.isEmpty() ? ring.firstKey() : tailMap.firstKey();
+        }
+        return ring.get(hash);
     }
 
-    private int getHash(String key) {
-        // In a real-world scenario, you would use a proper hash function
-        // For simplicity, we use the default hashCode() method in this example
-        return key.hashCode();
+    private long generateHash(String key) {
+        md.reset();
+        md.update(key.getBytes());
+        byte[] digest = md.digest();
+        long hash = ((long) (digest[3] & 0xFF) << 24) |
+                ((long) (digest[2] & 0xFF) << 16) |
+                ((long) (digest[1] & 0xFF) << 8) |
+                ((long) (digest[0] & 0xFF));
+        return hash;
     }
 
-    public static void main(String[] args) {
-        ConsistentHashing consistentHashing = new ConsistentHashing();
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        ConsistentHashing ch = new ConsistentHashing(3);
+        ch.addServer("server1");
+        ch.addServer("server2");
+        ch.addServer("server3");
 
-        // Adding nodes to the ring
-        consistentHashing.addNode("NodeA");
-        consistentHashing.addNode("NodeB");
-        consistentHashing.addNode("NodeC");
 
-        // Getting node for a specific key
-        String key = "SampleKey";
-        String selectedNode = consistentHashing.getNodeForKey(key);
+        System.out.println("key1: is present on server: " + ch.getServer("key1"));
+        System.out.println("key67890: is present on server: " + ch.getServer("key67890"));
 
-        System.out.println("Node for key '" + key + "': " + selectedNode);
+        ch.removeServer("server1");
+        System.out.println("After removing server1");
 
-        String key1 = "Nitin";
-
-        selectedNode = consistentHashing.getNodeForKey(key1);
-
-        System.out.println("Node for key '" + key1 + "': " + selectedNode);
-
-        // Removing a node from the ring
-        consistentHashing.removeNode("NodeA");
-
-        // Getting node for the same key after removing a node
-        selectedNode = consistentHashing.getNodeForKey(key);
-
-        System.out.println("Node for key '" + key + "' after removing NodeA: " + selectedNode);
+        System.out.println("key1: is present on server: " + ch.getServer("key1"));
+        System.out.println("key67890: is present on server: " + ch.getServer("key67890"));
     }
 }
