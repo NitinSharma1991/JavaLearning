@@ -38,7 +38,7 @@ class SemaRun implements Runnable {
     public void run() {
         System.out.println("Thread " + atomicInteger);
         sem.acquireUninterruptibly();
-        System.out.println("tad" == null);
+
         System.out.println("Thread Name " + Thread.currentThread() + " " + atomicInteger);
         sem.release();
 

@@ -1,17 +1,16 @@
 package com.designPattern.observer;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherObservableImpl implements Observable {
 
+    @Getter
     int data;
 
     List<Observer> observerList = new ArrayList<>();
-
-    public int getData() {
-        return data;
-    }
 
     public void setData(int data) {
         this.data = data;
@@ -21,11 +20,6 @@ public class WeatherObservableImpl implements Observable {
     @Override
     public void registerObserver(Observer obj) {
         observerList.add(obj);
-    }
-
-    @Override
-    public void removeObserver(Observer obj) {
-        observerList.remove(obj);
     }
 
     @Override

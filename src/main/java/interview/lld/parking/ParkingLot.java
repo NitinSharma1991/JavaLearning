@@ -29,7 +29,7 @@ public class ParkingLot implements Parking {
         return parkingLot;
     }
 
-    public boolean initializeParkingSlots(int numberOfTwoWheelerParkingSlots, int numberOfFourWheelerParkingSlots) {
+    public void initializeParkingSlots(int numberOfTwoWheelerParkingSlots, int numberOfFourWheelerParkingSlots) {
 
         for (int i = 1; i <= numberOfTwoWheelerParkingSlots; i++) {
             twoWheelerSlots.add(new Slot(i));
@@ -42,22 +42,20 @@ public class ParkingLot implements Parking {
         }
 
         System.out.printf("Created a four wheeler parking lot with %s slots %n", numberOfFourWheelerParkingSlots);
-        return true;
     }
 
     @Override
     public Ticket park(Vehicle vehicle) throws ParkingFullException {
         Slot nextAvailableSlot;
-        if (vehicle.getVehicleType().equals(VehicleType.FOUR_WHEELER_VEHICLE)) {
+        if (vehicle.vehicleType().equals(VehicleType.FOUR_WHEELER_VEHICLE)) {
             nextAvailableSlot = getNextAvailableFourWheelerSlot();
         } else {
             nextAvailableSlot = getNextAvailableTwoWheelerSlot();
         }
         nextAvailableSlot.occupySlot(vehicle);
         System.out.printf("Allocated slot number: %d \n", nextAvailableSlot.getSlotNumber());
-        Ticket ticket = new Ticket(vehicle.getVehicleNumber(), nextAvailableSlot.getSlotNumber(),
-                LocalDateTime.now(), vehicle.getVehicleType());
-        return ticket;
+        return new Ticket(vehicle.vehicleNumber(), nextAvailableSlot.getSlotNumber(),
+                LocalDateTime.now(), vehicle.vehicleType());
     }
 
     @Override
@@ -65,16 +63,16 @@ public class ParkingLot implements Parking {
         int costByHours = 0;
         Slot slot;
         try {
-            if (ticket.getVehicleType().equals(VehicleType.FOUR_WHEELER_VEHICLE)) {
-                slot = getFourWheelerSlotByVehicleNumber(ticket.getVehicleNumber());
+            if (ticket.vehicleType().equals(VehicleType.FOUR_WHEELER_VEHICLE)) {
+                slot = getFourWheelerSlotByVehicleNumber(ticket.vehicleNumber());
             } else {
-                slot = getTwoWheelerSlotByVehicleNumber(ticket.getVehicleNumber());
+                slot = getTwoWheelerSlotByVehicleNumber(ticket.vehicleNumber());
             }
             slot.unOccupySlot();
-            int hours = getHoursParked(ticket.getLocalDateTime(), LocalDateTime.now());
+            int hours = getHoursParked(ticket.localDateTime(), LocalDateTime.now());
             costByHours = parkingCostStrategy.getCharge(hours);
             System.out.println(
-                    "Vehicle with registration " + ticket.getVehicleNumber() + " at slot number " + slot.getSlotNumber()
+                    "Vehicle with registration " + ticket.vehicleNumber() + " at slot number " + slot.getSlotNumber()
                             + " was parked for " + hours + " hours and the total charge is " + costByHours);
         } catch (InvalidVehicleNumberException invalidVehicleNumber) {
             System.out.println(invalidVehicleNumber.getMessage());
@@ -92,17 +90,17 @@ public class ParkingLot implements Parking {
     private Slot getFourWheelerSlotByVehicleNumber(String vehicleNumber) throws InvalidVehicleNumberException {
         for (Slot slot : fourWheelerSlots) {
             Vehicle vehicle = slot.getVehicle();
-            if (vehicle != null && vehicle.getVehicleNumber().equals(vehicleNumber)) {
+            if (vehicle != null && vehicle.vehicleNumber().equals(vehicleNumber)) {
                 return slot;
             }
         }
-        throw new InvalidVehicleNumberException("Two wheeler with registration number " + vehicleNumber + " not found");
+        throw new InvalidVehicleNumberException("Four wheeler with registration number " + vehicleNumber + " not found");
     }
 
     private Slot getTwoWheelerSlotByVehicleNumber(String vehicleNumber) throws InvalidVehicleNumberException {
         for (Slot slot : twoWheelerSlots) {
             Vehicle vehicle = slot.getVehicle();
-            if (vehicle != null && vehicle.getVehicleNumber().equals(vehicleNumber)) {
+            if (vehicle != null && vehicle.vehicleNumber().equals(vehicleNumber)) {
                 return slot;
             }
         }

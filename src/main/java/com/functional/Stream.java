@@ -16,13 +16,13 @@ public class Stream {
 
         //Duplicates Elements in the list
 
-        System.out.println("Duplicates Elements in the list " + myList.stream().collect(Collectors.groupingBy(id -> id, Collectors.counting())).entrySet().stream().filter(id -> Math.toIntExact(id.getValue()) > 1).map(Map.Entry::getKey).collect(Collectors.toList()));
+        System.out.println("Duplicates Elements in the list " + myList.stream().collect(Collectors.groupingBy(id -> id, Collectors.counting())).entrySet().stream().filter(id -> Math.toIntExact(id.getValue()) > 1).map(Map.Entry::getKey).toList());
 
         //Find first element in the list
         System.out.println("Find first element in the list " + myList.stream().findFirst().get());
 
         //Total number of elements in list
-        System.out.println("Total number of elements in list " + myList.stream().count());
+        System.out.println("Total number of elements in list " + (long) myList.size());
 
         //MAx in list
         System.out.println("Max number in list " + myList.stream().max(Integer::compare).get());
@@ -39,7 +39,7 @@ public class Stream {
 
         String s = "string data to count each character";
 
-        Map<Character, Long> map = s.chars().mapToObj(Character::toLowerCase).collect(Collectors.groupingBy(id -> (char) id.intValue(), LinkedHashMap::new, Collectors.counting()));
+        Map<Character, Long> map = s.chars().mapToObj(Character::toLowerCase).collect(Collectors.groupingBy(id -> (char) id.intValue(),Collectors.counting()));
         System.out.println("string data to count each character " + map);
 
 

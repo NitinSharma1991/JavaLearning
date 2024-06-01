@@ -1,17 +1,19 @@
 package JDK;
 
 public enum SampleEnum {
+
+
     MONDAY(1, "Monday") {
         @Override
         public String getEnumSampleDay(int val) {
-            return "Monday";
+            return val + "Monday";
         }
     },
-    TEUSDAY(2, "Teusday");
+    TUESDAY(2, "Tuesday");
 
 
-    int val;
-    String day;
+    private int val;
+    private String day;
 
     SampleEnum(int val, String day) {
         this.val = val;

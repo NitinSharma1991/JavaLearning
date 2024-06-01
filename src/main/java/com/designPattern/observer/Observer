@@ -1,3 +1,3 @@
-Observale Pattern consist of two things.
+Observable Pattern consist of two things.
 1. Observable and Observer -> Where number of observer are observing observable to know about it's current state.
 2. Here Observable job is to notify these observer whenever there is a change in state of the data.

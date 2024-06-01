@@ -16,7 +16,7 @@ public class EmployeeDaoProxy implements EmployeeDao {
     @Override
     public void createEmployee(String emp) {
 
-        if (emp.equals("ADMIN")) {
+        if (emp.equals(allowedEmployee)) {
             employeeDao.createEmployee(emp);
             return;
 
@@ -29,7 +29,7 @@ public class EmployeeDaoProxy implements EmployeeDao {
     @Override
     public void deleteEmployee(String emp) {
 
-        if (emp.equals("ADMIN")) {
+        if (emp.equals(allowedEmployee)) {
             employeeDao.deleteEmployee(emp);
             return;
         }
@@ -41,7 +41,7 @@ public class EmployeeDaoProxy implements EmployeeDao {
     @Override
     public void updateEmployee(String emp) {
 
-        if (emp.equals("ADMIN")) {
+        if (emp.equals(allowedEmployee)) {
             employeeDao.updateEmployee(emp);
             return;
 

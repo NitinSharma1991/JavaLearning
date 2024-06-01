@@ -1,6 +1,11 @@
 package com.Threading;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 import java.util.stream.IntStream;
 
@@ -10,34 +15,30 @@ public class ParallelStream {
 
         int cores = ForkJoinPool.getCommonPoolParallelism();
         System.out.println(cores);
-        List<Integer> listOfNumbers = IntStream.rangeClosed(0, 50)
+        List<Integer> listOfNumbers = IntStream.rangeClosed(0, 51)
                 .boxed().toList();
-//        long a = System.currentTimeMillis();
-//        listOfNumbers.forEach(number -> {
-//            System.out.println("Sequential" + number + " " + Thread.currentThread().getName());
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//
-//        System.out.println("Time taken" + (System.currentTimeMillis() - a));
 
-        long a1 = System.currentTimeMillis();
+        Instant a1 = Instant.now();
+        ExecutorService executorService = Executors.newFixedThreadPool(cores);
 
 
-        listOfNumbers.forEach(number -> {
-            System.out.println("Parallel " + number + " " + Thread.currentThread().getName());
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
+//        listOfNumbers.forEach((num) -> CompletableFuture.runAsync(() -> isDivisibleByTwo(num)));
+        List<CompletableFuture<Boolean>> completableFutureList = listOfNumbers.stream().map(num -> CompletableFuture.supplyAsync(() -> isDivisibleByTwo(num), executorService)).toList();
+//        CompletableFuture.allOf(completableFutureList.toArray(new CompletableFuture[0])).join();
+        System.out.println("Time taken " + (Duration.between(a1, Instant.now()).toMillis()));
+        try {
+            executorService.shutdown();
+        } catch (Exception ignored) {
 
-        System.out.println("Time taken" + (System.currentTimeMillis() - a1));
+        }
 
+
+    }
+
+
+    private static boolean isDivisibleByTwo(int num) {
+        System.out.println("Number " + " " + num + " is divisible by 2 " + (num % 2 == 0));
+        return num % 2 == 0;
     }
 
 

@@ -1,53 +1,53 @@
 package com.basics;
 
-import java.util.ArrayList;
+import lombok.Getter;
 
-import static com.Anargam.reverseString;
+import java.util.ArrayList;
+import java.util.function.Function;
 
 public final class ImmutableClass {
+    @Getter
     final String name;
+    @Getter
     final String nitin;
+    @Getter
     final String sum;
+    @Getter
     final int a;
-    final ArrayList add;
+    @Getter
+    final ArrayList<String> add;
     final Apple apple;
+    Function<String, Integer> function = String::hashCode;
 
-    public ImmutableClass(String name, String nitin, String sum, int a, ArrayList add, Apple apple) {
+    public ImmutableClass(String name, String nitin, String sum, int a, ArrayList<String> add, Apple apple) {
         this.name = name;
         this.nitin = nitin;
         this.sum = sum;
         this.a = a;
-        this.add = (ArrayList) add.clone();
+        this.add = new ArrayList<>(add);
         this.apple = apple;
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
-
         ArrayList<String> list = new ArrayList<>();
-        list.add("Nitin");
+        list.add("siting");
         Apple apple = new Apple("apple");
         ImmutableClass immutableClass = new ImmutableClass("ka", "na", "10", 10, list, apple);
-        list.add("nitin1");
+        list.add("siting1");
         immutableClass.getApple().setColor("Red");
-        System.out.println(immutableClass);
-        ImmutableClass immutableClass1 = new ImmutableClass("ka", "na", "10", 10, list, apple);
-        System.out.println(immutableClass1);
-
-        System.out.println(reverseString("Nitin"));
-
-
+        System.out.format("First Immutable object output = %s \n", immutableClass);
+        Apple apple1 = new Apple("red");
+        ImmutableClass immutableClass1 = new ImmutableClass("ka", "na", "10", 10, list, apple1);
+        System.out.format("Second Immutable object output = %s\n", immutableClass1);
+        list.add("Kafka");
+        System.out.format("Second Immutable obj fruit output = %s\n", immutableClass1.getApple());
+        System.out.format("Hash Code for given string %s is %s\n",
+                immutableClass1.getApple().getColor(),
+                immutableClass1.function.apply(immutableClass1.getApple().getColor()));
     }
 
     public Apple getApple() throws CloneNotSupportedException {
         return (Apple) apple.clone();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getNitin() {
-        return nitin;
     }
 
     @Override
@@ -62,15 +62,4 @@ public final class ImmutableClass {
                 '}';
     }
 
-    public ArrayList getAdd() {
-        return (ArrayList) add.clone();
-    }
-
-    public String getSum() {
-        return sum;
-    }
-
-    public int getA() {
-        return a;
-    }
 }

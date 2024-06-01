@@ -39,7 +39,7 @@ public class Employee {
                 '}';
     }
 
-    static class EmployeeBuilder {
+    static public class EmployeeBuilder {
         private String name;
         private String department;
         private String organization;

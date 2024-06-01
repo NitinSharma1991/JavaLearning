@@ -17,7 +17,7 @@ public class MultiThreadedWebCrawler {
         executor.shutdown();
 
         try {
-            executor.awaitTermination(10, TimeUnit.SECONDS);
+            executor.awaitTermination(10, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -39,8 +39,9 @@ public class MultiThreadedWebCrawler {
         }
         for (Future f : futures) {
             try {
-                f.get();
+                f.get(100, TimeUnit.SECONDS);
             } catch (Exception e) {
+                f.cancel(true);
                 e.printStackTrace();
             }
         }

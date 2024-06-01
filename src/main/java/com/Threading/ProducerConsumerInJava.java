@@ -6,7 +6,7 @@ public class ProducerConsumerInJava {
     public static void main(String[] args) {
         System.out.println("How to use wait and notify method in Java");
         System.out.println("Solving Producer Consumer Problem");
-        BoundedBlockingQueue<Integer> buffer = new BoundedBlockingQueue<>(5);
+        BoundedBlockingQueue<Integer> buffer = new BoundedBlockingQueue<>(2);
         int maxSize = 5;
         Thread producer = new Producer1(buffer, maxSize, "PRODUCER");
         Thread consumer = new Consumer1(buffer, maxSize, "CONSUMER");

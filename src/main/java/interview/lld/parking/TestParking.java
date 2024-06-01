@@ -21,11 +21,9 @@ public class TestParking {
         System.out.println(ticket2);
         int cost1 = parkingLot.unPark(ticket2, new TwoWheelerWeekendDayStrategy());
         System.out.println(cost1);
-
-        Thread.sleep(100000);
-
         int cost2 = parkingLot.unPark(ticket, new FourWheelerWeekDayStrategy());
         System.out.println(cost2);
+
 
     }
 

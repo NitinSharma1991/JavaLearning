@@ -46,11 +46,10 @@ public class ConsistentHashing {
         md.reset();
         md.update(key.getBytes());
         byte[] digest = md.digest();
-        long hash = ((long) (digest[3] & 0xFF) << 24) |
+        return ((long) (digest[3] & 0xFF) << 24) |
                 ((long) (digest[2] & 0xFF) << 16) |
                 ((long) (digest[1] & 0xFF) << 8) |
                 ((long) (digest[0] & 0xFF));
-        return hash;
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {

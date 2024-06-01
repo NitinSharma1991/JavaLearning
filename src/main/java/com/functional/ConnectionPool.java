@@ -3,13 +3,13 @@ package com.functional;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.SQLException;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConnectionPool implements ConnectionPoolInterface {
 
-    Queue<Connection> blockingQueue;
+    BlockingQueue<Connection> blockingQueue;
     int capacity;
     String username = "Nitin";
     String password = "password";
@@ -27,7 +27,7 @@ public class ConnectionPool implements ConnectionPoolInterface {
             synchronized (ConnectionPool.class) {
                 if (db == null) {
                     db = new ConnectionPool();
-                    db.blockingQueue = new ArrayDeque<>(10);
+                    db.blockingQueue = new ArrayBlockingQueue<>(10);
                     return db;
                 }
             }

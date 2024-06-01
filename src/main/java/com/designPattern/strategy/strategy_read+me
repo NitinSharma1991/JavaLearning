@@ -1,3 +1,3 @@
 Strategy pattern is used when child classes can't use parent capability directly. So child classes develop their own capability but when those
 those capabilities become common among two or more class. There we can use strategy design pattern where parent class has-a strategy interface object for that capability
-and that capabilty can extend interface to provide to first parent class for child classes usage.
+and that capability can extend interface to provide to first parent class for child classes usage.

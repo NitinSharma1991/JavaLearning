@@ -26,11 +26,14 @@ public class BoundedBlockingQueue<T> {
     void enqueue(T element) throws InterruptedException {
         lock.lock();
         try {
-            if (queue.size() == cap) {
+            while (queue.size() == cap) {
                 notFull.await();
             }
-            queue.offer(element);
             notEmpty.signalAll();
+            queue.offer(element);
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             lock.unlock();
         }
@@ -39,13 +42,16 @@ public class BoundedBlockingQueue<T> {
     T dequeue() {
         lock.lock();
         try {
-            if (queue.isEmpty()) {
+            while (queue.isEmpty()) {
                 notEmpty.await();
             }
+            T item = queue.poll();
             notFull.signalAll();
-            return queue.poll();
+            return item;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            lock.unlock();
         }
 
     }

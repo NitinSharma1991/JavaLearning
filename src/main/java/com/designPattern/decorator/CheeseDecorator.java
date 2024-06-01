@@ -2,8 +2,6 @@ package com.designPattern.decorator;
 
 public class CheeseDecorator extends PizzaDecorator {
 
-
-
     BasePizza basePizza;
 
     CheeseDecorator(BasePizza pizza) {

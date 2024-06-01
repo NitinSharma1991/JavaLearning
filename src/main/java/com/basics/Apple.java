@@ -1,10 +1,16 @@
 package com.basics;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
+@Setter
+@Getter
 public class Apple implements Cloneable {
+
     private String color;
 
     public Apple(String color) {
@@ -19,6 +25,7 @@ public class Apple implements Cloneable {
 
         //hashMap stores apple type and its quantity
         HashMap<Apple, Integer> m = new HashMap<>();
+
         set.add(a2);
         set.add(a1);
         System.out.println(set.size());
@@ -27,28 +34,16 @@ public class Apple implements Cloneable {
         System.out.println(m.get(new Apple("green")));
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     @Override
     public String toString() {
-        return "Apple{" +
-                "color='" + color + '\'' +
-                '}';
+        return "Apple{" + "color='" + color + '\'' + '}';
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
-        if (!(obj instanceof Apple))
-            return false;
-        if (obj == this)
-            return true;
+        if (!(obj instanceof Apple)) return false;
+        if (obj == this) return true;
         return this.color.equals(((Apple) obj).color);
     }
 
