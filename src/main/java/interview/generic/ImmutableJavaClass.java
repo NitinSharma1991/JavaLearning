@@ -1,23 +1,28 @@
 package interview.generic;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
 public final class ImmutableJavaClass {
 
+    @Getter
     final int id;
+    @Getter
     final String name;
+    @Getter
     final ArrayList<String> list;
     final Address address;
 
     public ImmutableJavaClass(int id, String name, ArrayList<String> list, Address address) {
         this.id = id;
         this.name = name;
-        this.list = (ArrayList<String>) list.clone();
+        this.list = new ArrayList<>(list);
         this.address = address;
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        ArrayList list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<String>();
         list.add("KAkak");
         Address address = new Address();
         address.setCity("Mumbai");
@@ -41,18 +46,6 @@ public final class ImmutableJavaClass {
                 ", list=" + list +
                 ", address=" + address +
                 '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public ArrayList<String> getList() {
-        return (ArrayList<String>) list.clone();
     }
 
 

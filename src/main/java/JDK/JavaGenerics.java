@@ -1,5 +1,6 @@
 package JDK;
 
+import java.util.Collections;
 import java.util.List;
 
 public class JavaGenerics {
@@ -26,7 +27,7 @@ public class JavaGenerics {
 
 
     static List<?> getName(List<? extends Number> name) {
-        return name;
+        return Collections.unmodifiableList(name);
     }
 
 

@@ -31,7 +31,7 @@ public class PostOrderIterative {
         }
 
         System.out.println("Post Order Traversal" + res);
-        res = new LinkedList<>();
+        res.clear();
         stack.add(r);
         //preOrder
         while (!stack.isEmpty()) {
@@ -44,10 +44,8 @@ public class PostOrderIterative {
                 stack.push(root.left);
             }
         }
-
         System.out.println("Pre Order Traversal" + res);
-
-        res = new LinkedList<>();
+        res.clear();
         Node c = r;
         //InOrder
         while (c != null || !stack.isEmpty()) {

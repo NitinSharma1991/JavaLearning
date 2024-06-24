@@ -60,7 +60,7 @@ public class ParkingLot implements Parking {
 
     @Override
     public int unPark(Ticket ticket, ParkingChargeStrategy parkingCostStrategy) throws InvalidVehicleNumberException {
-        int costByHours = 0;
+        int costByHours;
         Slot slot;
         try {
             if (ticket.vehicleType().equals(VehicleType.FOUR_WHEELER_VEHICLE)) {

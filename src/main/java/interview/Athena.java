@@ -1,8 +1,10 @@
 package interview;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
@@ -13,17 +15,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Athena {
 
-
     public static void main(String[] args) throws IOException {
 
         Instant now = Instant.now();
         int numOfThreads = Runtime.getRuntime().availableProcessors();
-        ExecutorService executorService = Executors.newFixedThreadPool(numOfThreads);
+        ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
         Map<Character, AtomicInteger>[] results = new Map[numOfThreads];
         System.out.println("Number of Threads " + numOfThreads);
-
+        Path path = Paths.get("C:\\XPS\\Nitin Resume\\output-onlinefiletools.txt");
         AtomicInteger atomicIntegerAns;
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\XPS\\Nitin Resume\\output-onlinefiletools.txt"))) {
+        try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
             String s;
             int threadIndex = 0;
             while ((s = bufferedReader.readLine()) != null) {
@@ -65,6 +66,4 @@ public class Athena {
             result.computeIfAbsent(c, k -> new AtomicInteger()).incrementAndGet();
         }
     }
-
-
 }

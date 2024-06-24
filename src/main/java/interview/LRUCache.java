@@ -36,7 +36,6 @@ public class LRUCache<K, V> {
                 remove(tail.prev);
             }
         }
-
         insert(new Node<>(key, value));
     }
 

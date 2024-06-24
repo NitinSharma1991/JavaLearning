@@ -1,9 +1,18 @@
 package JDK;
 
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
-import java.util.function.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class FunctionalProgramming {
+
+    Predicate<String> predicate = (data) -> data.equals("siting");
+    BiPredicate<String, String> biPredicate = String::equals;
+    Supplier<String> supplier = () -> "This is a supplier";
+    Function<String, Integer> function = (data) -> data.charAt(1) - 'A';
+    Consumer<String> consumer = data -> System.out.println(data.toUpperCase());
 
     public static void main(String[] args) {
         FunctionalProgramming functionalProgramming = new FunctionalProgramming();
@@ -21,14 +30,6 @@ public class FunctionalProgramming {
 
 
     }
-
-
-
-    Predicate<String> predicate = (data) -> data.equals("siting");
-    BiPredicate<String, String> biPredicate = String::equals;
-    Supplier<String> supplier = () -> "This is a supplier";
-    Function<String, Integer> function = (data) -> data.charAt(1) - 'A';
-    Consumer<String> consumer = data -> System.out.println(data.toUpperCase());
 
 }
 

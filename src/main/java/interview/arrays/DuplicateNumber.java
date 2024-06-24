@@ -14,8 +14,6 @@ public class DuplicateNumber {
         LocalDate dt1 = LocalDate.parse("2018-11-14");
         System.out.println(dt1);
         String s = null;
-        if ("".equalsIgnoreCase(s))
-            System.out.println("yes");
         // Compare both dates
         System.out.println(dt1.compareTo(dt));
 
